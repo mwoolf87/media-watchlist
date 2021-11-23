@@ -7,6 +7,7 @@
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
@@ -14,6 +15,7 @@
     "jade": "^0.29.0",
     "morgan": "~1.9.1",
     "pg": "^8.7.1",
+    "pg-promise": "^10.11.1",
     "postgres": "^1.0.2",
     "sequelize": "^6.12.0-alpha.1"
   },
