@@ -48,7 +48,7 @@ export default function MovieList() {
 
     return (
         <div>
-            <h1>Moogle</h1>
+            <h1>RecommendMe</h1>
             {/* Created form to handle user input and search button */}
             <form onSubmit={getMovies}>
                 {/* text input that has an event handler of onChange that runs the handleChange function defined on line 18 */}
