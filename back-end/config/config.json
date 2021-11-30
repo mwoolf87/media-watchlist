@@ -1,23 +1,41 @@
 {
   "development": {
-    "username": "",
-    "password": null,
-    "database": "capstone",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "duacgabobnruti",
+    "password": "f63517d32ac1cc2a9a216bd90d6b6782b7018d7e21eb6a63c1a52e915c9ce4c1",
+    "database": "dft6ncri7eb48i",
+    "host": "http://ec2-44-199-40-188.compute-1.amazonaws.com/",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   },
   "test": {
-    "username": "",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "duacgabobnruti",
+    "password": "f63517d32ac1cc2a9a216bd90d6b6782b7018d7e21eb6a63c1a52e915c9ce4c1",
+    "database": "dft6ncri7eb48i",
+    "host": "http://ec2-44-199-40-188.compute-1.amazonaws.com/",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   },
   "production": {
-    "username": "",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "duacgabobnruti",
+    "password": "f63517d32ac1cc2a9a216bd90d6b6782b7018d7e21eb6a63c1a52e915c9ce4c1",
+    "database": "dft6ncri7eb48i",
+    "host": "http://ec2-44-199-40-188.compute-1.amazonaws.com/",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   }
 }

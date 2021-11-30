@@ -16,12 +16,8 @@
     "pg-promise": "^10.11.1",
     "postgres": "^1.0.2",
     "react": "^17.0.2",
-    "react-bootstrap": "^2.0.2",
     "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6",
-    "react-router-dom": "^6.0.2",
-    "react-scripts": "^4.0.3",
-    "redux": "^4.1.2",
+    "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
