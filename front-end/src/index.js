@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import { CharkaProvider} from "@chakra-ui/core";
 import rootReducer from './redux/reducers/rootReducer';
 
 
@@ -17,9 +18,12 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     {/* wrapping provider in entire app component*/}
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <CharkaProvider>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </CharkaProvider>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
