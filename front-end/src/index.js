@@ -1,42 +1,24 @@
-const passport = require("passport");
-require("./passport");
+// render react div element in dom
 
-// Express
-const express = require('express');
-const app = express();
-
-/* Middleware  
-const isLoggedIn = require('./Middleware/auth') */
-
-// Passports
-app.use(passport.initialize());
-app.use(passport.session());
-
-/* app.get('/',isLoggedIn,(req,res)=>{
-  res.send(`Hello world ${req.user.displayName}`)
-}) */
-
-app.get("/auth/error", (req, res) => res.send("Unknown Error"));
-
-app.get(
-  "/auth/github",
-  passport.authenticate("github", { scope: ["user:email"] })
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './redux/reducers/rootReducer';
+// creating store
+const store = createStore(
+  //root reducer coming from reducers folder
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+ReactDOM.render(
+  <React.StrictMode>
+    {/* wrapping provider in entire app component*/}
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
-
-app.get(
-  "/auth/github/callback",
-  passport.authenticate("github", { failureRedirect: "/auth/error" }),
-  function (req, res) {
-    res.redirect("/");
-  }
-);
-
-app.get('/logout', (req, res) => {
-  req.session = null;
-  req.logout();
-  res.redirect('/');
-})
-
-app.listen(3000, () => {
-  console.log("Server is up and running at the port 3000");
-});
