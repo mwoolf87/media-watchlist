@@ -72,7 +72,7 @@ export default function MovieList() {
   // useEffect(() => {
   //   getDefaultMovies();
   // }, []);
-
+  // Comment
   return (
     <div>
       <h1>RecommendMe</h1>
