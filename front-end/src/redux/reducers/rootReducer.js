@@ -1,9 +1,11 @@
-import { combineReducers } from "redux";
-import { apiData } from "./movieDataReducer";
+import { combineReducers } from "redux"
+import { movieData } from "./movieDataReducer"
+
+
 
 const rootReducer = combineReducers({
-  //applying movieData to combineReducers
-  apiData
-});
+    //applying movieData to combineReducers
+    movieData,
+})
 
-export default rootReducer;
+export default rootReducer
