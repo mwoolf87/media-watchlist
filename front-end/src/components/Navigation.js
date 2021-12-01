@@ -8,6 +8,7 @@ export default function Navigation() {
             <Navbar className="nav-links" expand="lg" variant="dark" bg="dark">
                     <Link to="/">Home</Link>
                     <Link to="/watchlist">Watchlist</Link>
+                    <Link to="/aboutus">AboutUs</Link>
             </Navbar>
         </Container>
 

@@ -6,6 +6,8 @@ import MovieList from './components/MovieList';
 import Watchlist from './components/Watchlist';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
+import About from './components/About';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           {/* rendering MovieList component within app.js to keep code clean */}
           <Route exact path="/" element={<MovieList />}/>
           <Route path="/watchlist" element={<Watchlist />}/>
+          <Route path="/about" element = {<About />} />
         </Routes>
       </Router>
     </div>
