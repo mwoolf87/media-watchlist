@@ -6,7 +6,7 @@ export default function Navigation() {
     return (
         <Container>
             <Navbar className="nav-links" expand="lg" variant="dark" bg="dark">
-                    <Link to="/">Home</Link>
+                    <Link className="m-1" to="/">Home</Link>
                     <Link to="/watchlist">Watchlist</Link>
                     <Link to="/aboutus">AboutUs</Link>
             </Navbar>
