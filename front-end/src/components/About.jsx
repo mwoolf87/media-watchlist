@@ -31,7 +31,7 @@ function About() {
                         </Row>
                         <Row>
                             <Col>
-                            <a href="https://www.linkedin.com/in/julia-szymanski-3555a7b9/">
+                            <a href="https://www.linkedin.com/in/julia-szymanski-3555a7b9">
                                 <img className="about-logo" src={LinkedIn} alt="LinkedIN Logo"></img>
                             </a>
                             <a href="https://github.com/julszymanski">
