@@ -1,5 +1,5 @@
 import React from "react";
-import axios from 'axios';
+import Button from "react-bootstrap/Button";
 
 export default function OAuth() {
   const githubLogin = () => {
@@ -12,10 +12,10 @@ export default function OAuth() {
     }).then((res) => res.json());
   };
   return (
-    <div>
-      <button onClick={()=>githubLogin()} block size="lg" type="submit">
+    <>
+      <Button onClick={()=>githubLogin()} block size="lg" type="submit">
         Github Login 
-      </button>
-    </div>
+      </Button>
+    </>
   );
 }
