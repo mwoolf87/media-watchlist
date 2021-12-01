@@ -8,11 +8,12 @@ import ScottPic from './Images/Scott_aboutUS.jpeg';
 import JuliaPic from './Images/Julia_aboutUS.jpeg';
 import MikePic from './Images/Mike_aboutUS.jpeg';
 import { Col, Row } from "react-bootstrap";
+import Contact from "./Contact";
 
 function About() {
   return (
     <>
-        <Container className = "overall">
+        <Container className = "Profiles">
             <Row>
                 <Col>
                     {/* Julia Profile */}
@@ -33,7 +34,6 @@ function About() {
                             <a href="https://www.linkedin.com/in/julia-szymanski-3555a7b9/">
                                 <img className="about-logo" src={LinkedIn} alt="LinkedIN Logo"></img>
                             </a>
-                            <a className = "p-3" href ="#">Contact</a>
                             <a href="https://github.com/julszymanski">
                                 <img className="about-logo" src={GitHub} alt="GithubLogo"></img>
                             </a>
@@ -51,7 +51,7 @@ function About() {
                         </Row>
                         <Row>
                             <Col>
-                                <h4>Scott Henderson</h4>
+                                <h4>Mike Woolf</h4>
                                 <h3>Full Stack Web Developer</h3>
                             </Col>
                         </Row>
@@ -60,7 +60,6 @@ function About() {
                             <a href="https://www.linkedin.com/in/mwoolfdev/">
                                 <img className="about-logo" src={LinkedIn} alt="LinkedIN Logo"></img>
                             </a>
-                            <a className = "p-3" href ="#">Contact</a>
                             <a href="https://github.com/mwoolf87">
                                 <img className="about-logo" src={GitHub} alt="GithubLogo"></img>
                             </a>
@@ -88,7 +87,6 @@ function About() {
                             <a href="https://www.linkedin.com/in/scottmchenderson/">
                                 <img className="about-logo" src={LinkedIn} alt="LinkedIN Logo"></img>
                             </a>
-                            <a className = "p-3" href ="mailto:scott.mc.henderson@gmail.com">Contact</a>
                             <a href="https://github.com/smhenderson89">
                                 <img className="about-logo" src={GitHub} alt="GithubLogo"></img>
                             </a>
@@ -100,7 +98,7 @@ function About() {
             
         </Container>
 
-      
+        <Contact />
     </>
   );
 }
