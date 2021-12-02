@@ -70,7 +70,6 @@ function About() {
                 <Col>
                     {/* Scott Henderson profile */}
                     <Container className = "pb-3">
-
                         <Row>
                             <Col>
                                 <Image className="profilePic" src={ScottPic} alt="Profile Pic" rounded />
@@ -87,7 +86,7 @@ function About() {
                             <a href="https://www.linkedin.com/in/scottmchenderson/">
                                 <img className="about-logo" src={LinkedIn} alt="LinkedIN Logo"></img>
                             </a>
-                            <a href="https://github.com/smhenderson89">
+                            <a href="https://github.com/smhenderson89/">
                                 <img className="about-logo" src={GitHub} alt="GithubLogo"></img>
                             </a>
                             </Col>
