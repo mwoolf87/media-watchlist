@@ -23,10 +23,10 @@ module.exports = {
       favoriteBooks: {
         type: Sequelize.STRING
       },
-      favoriteShows: {
+      favoriteFlicks: {
         type: Sequelize.STRING
       },
-      favoriteSongs: {
+      favoriteApps: {
         type: Sequelize.STRING
       },
       createdAt: {
