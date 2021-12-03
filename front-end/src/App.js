@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import About from './components/About';
 import OAuth from './components/OAuth';
+import Test from './components/Test';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/" element={<MovieList />}/>
           <Route path="/watchlist" element={<Watchlist />}/>
           <Route path="/about" element = {<About />} />
+          <Route path="/test" element = {<Test />} />
         </Routes>
       </Router>
     </div>

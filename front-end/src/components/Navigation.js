@@ -9,6 +9,7 @@ export default function Navigation() {
                     <Link className="m-1" to="/">Home</Link>
                     <Link to="/watchlist">Watchlist</Link>
                     <Link to="/aboutus">AboutUs</Link>
+                    <Link to="/test">Test</Link>
             </Navbar>
         </Container>
 
