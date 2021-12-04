@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { setMovieData } from "../redux/actions/movieData-actions";
+import { setApiData } from "../redux/actions/movieData-actions";
 
 export default function MovieCard(props) {
   // defining dispatch to use on line 22
@@ -19,7 +19,7 @@ export default function MovieCard(props) {
           <Card.Title>{Title}</Card.Title>
           <Card.Title>{Year}</Card.Title>
           {/* calling dispatch to set the state of our watchlist data in reducer */}
-          <Button onClick={() => dispatch(setMovieData(props.data))}>
+          <Button onClick={() => dispatch(setApiData(props.data))}>
             Add to Watchlist
           </Button>
         </Card.Body>
