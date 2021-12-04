@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const http = require('https');
 
 const server = http.createServer(app);
 
@@ -11,7 +12,3 @@ router.get('/login', function(req, res, next) {
 });
 
 module.exports = router;
-
-//pgp and db requirements
-const pgp = require("pg-promise")();
-const db = pgp("postgres://@127.0.0.1:5432/capstone");
