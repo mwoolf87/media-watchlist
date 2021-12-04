@@ -1,14 +1,32 @@
-const Sequelize = require('sequelize');
-const { User } = require('./models');
+const http = require('http');
+const hostname = '127.0.0.1';
+const port = 4000;
+const express = require('express');
+const app = express();
 
+const server = http.createServer(app);
+
+/* Import Models*/
+const Sequelize = require('sequelize');
+const Users = require('./models/users');
+
+/* Test */
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
+
+/* Create */
 app.post('/users', async (req, res) => {
     // req.body contains an Object with firstName, lastName, email
-    const { firstName, lastName, email, hash } = req.body;
+    const { firstName, lastName, email } = req.body;
     const newUser = await User.create({
         firstName,
         lastName,
         email,
-        hash
+        hash,
+        favoriteBooks,
+        favoriteFlicks,
+        favoriteApps
     });
     
     // Send back the new user's ID in the response:
@@ -17,16 +35,39 @@ app.post('/users', async (req, res) => {
     });
 })
 
-// Retrieving Users
+/* Read */
 app.get('/users', async (req, res) => {
-    const users = await User.findAll();
+    const users = await Users.findAll();
     res.json(users);
 });
 
-//Get users by lastName
-app.get('/users/by-last-name', async (req, res) => {
-    const users = await User.findAll({
-        attributes: ['lastName']
+/* Update */
+app.post('/users/:id', async (req, res) => {
+    const { id } = req.params;
+    
+    // Assuming that `req.body` is limited to
+    // the keys firstName, lastName, and email
+    const updatedUser = await User.update(req.body, {
+      where: {
+        id
+      }
     });
-    res.json(users);
+    
+    res.json(updatedUser);
 });
+
+/* Delete */
+app.delete('/users/:id', async (req, res) => {
+    const { id } = req.params;
+    const deletedUser = await URLSearchParams.destroy({
+        where: {
+            id
+        }
+    });
+    res.json(deletedUser);
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+// Code provided by nodejs.org
