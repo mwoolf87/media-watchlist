@@ -1,0 +1,26 @@
+:root {
+  --SiteBlue: #1B4D89;
+  --SiteYellow: #F9E45B;
+  --SiteGreen: #6DB784;
+  --SiteWhite: #FFFFFF;
+  --SiteSageGreen: #98D6D3;
+}
+
+@media all and (min-width: 480px) {
+    .Modal
+    .Login {
+      padding: 60px 0;
+      color: var(--SiteBlue);
+    }
+  
+    .Login form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+
+    .Login button {
+      background-color: var(--SiteGreen);
+      margin-top: 60px;
+    }
+  }
+

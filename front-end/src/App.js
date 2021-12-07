@@ -3,7 +3,7 @@ import "./App.css";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login';
-import MovieList from './components/MovieList';
+import MediaList from './components/MediaList';
 import Watchlist from './components/Watchlist';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           {/* rendering MovieList component within app.js to keep code clean */}
 
-          <Route exact path="/" element={<MovieList />}/>
+          <Route exact path="/" element={<MediaList />}/>
           <Route path="/watchlist" element={<Watchlist />}/>
           <Route path="/about" element = {<About />} />
           <Route path="/test" element = {<Test />} />
