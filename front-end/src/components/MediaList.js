@@ -9,7 +9,7 @@ export default function MediaList() {
 
   const [searchCriteria, setSearchCriteria] = useState("");
 
-  // Search by Input Value `https://api.themoviedb.org/3/search/movie?api_key=516a7e6108bcc9da1620d3ae61b05091&language=en-US&query=${inputValue}&page=1&include_adult=false&region=US`
+  //`https://api.themoviedb.org/3/search/movie?api_key=516a7e6108bcc9da1620d3ae61b05091&language=en-US&query=${inputValue}&page=1&include_adult=false&region=US`
 
   // Rating:`https://api.themoviedb.org/3/certification/movie/list?api_key=516a7e6108bcc9da1620d3ae61b05091`
 
@@ -19,13 +19,14 @@ export default function MediaList() {
 
     axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=516a7e6108bcc9da1620d3ae61b05091&language=en-US&query=${inputValue}&page=1&include_adult=false&region=US`
+        `https://api.themoviedb.org/3/movie/550?api_key=516a7e6108bcc9da1620d3ae61b05091&l&language=en-USapend_to_response=providers`
       )
       .then(res => res.data)
       .then(data => {
         //setting the inputValue back to an empty string to clear the search bar when you press the search button
         setInputValue("");
         //setting the movie data we get back from the response of the api to our movieData state
+        console.log(data);
         return setApiData(data.results);
       });
   };
@@ -100,7 +101,7 @@ export default function MediaList() {
 
       <div className="movie-container">
         <Row>
-          {apiData.map((data, id) => {
+          {/* {apiData.map((data, id) => {
             return (
               <Col
                 key={id}
@@ -118,7 +119,7 @@ export default function MediaList() {
                 )}
               </Col>
             );
-          })}
+          })} */}
         </Row>
       </div>
     </div>
