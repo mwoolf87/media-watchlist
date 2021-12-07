@@ -12,8 +12,10 @@ const { User } = require('./models');
 const http = require('http');
 const server = http.createServer(app);
 
-const db = new Sequelize('database_development', 'root', null, {
-  host: 'localhost',
+const db = new Sequelize("d6vl2mh8hnhqlt"
+  , "jrxhfgxrxvltjk"
+  , "1243c6b65a282c3f1a9780f2ad5ec7bd6fb539710dc50e7770bcee15b9979629", {
+  host: "ec2-44-193-111-218.compute-1.amazonaws.com",
   dialect: 'postgres',
 });
 
@@ -88,19 +90,6 @@ app.post('/users', async (req, res) => {
     id: newUser.id
   });
 })
-
-// Read user by ID
-app.get('/users/:id', async (req, res) => {
-  try{
-      const oneUser = await User.findByPk(req.params.id);
-      res.json(oneUser);
-  } catch (e) {
-      console.log(e);
-      res.status(404).json({
-          message: 'User id not found'
-      });
-  }
-});
 
 
 /* Update */
