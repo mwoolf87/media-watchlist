@@ -1,37 +1,32 @@
 {
   "name": "back-end",
-  "version": "0.0.0",
-  "private": true,
-  "engines": {
-    "node": "^16.10.0"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
+    "dev": "nodemon index.js",
     "start": "node index.js",
-    "build": "cd front-end && npm install && npm run build"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:reset": "sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "dotenv": "^10.0.0",
-    "env": "^0.0.2",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "i": "^0.3.7",
-    "jade": "^0.29.0",
-    "morgan": "~1.9.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-handlebars": "^6.0.2",
+    "helmet": "^4.6.0",
+    "morgan": "^1.10.0",
     "pg": "^8.7.1",
-    "pg-promise": "^10.11.1",
-    "postgres": "^1.0.2",
-    "sequelize": "^6.12.0-alpha.1"
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.12.0-alpha.1",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.15",
     "sequelize-cli": "^6.3.0"
-  },
-  "main": "app.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  }
 }
