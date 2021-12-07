@@ -6,13 +6,15 @@ const hostname = '127.0.0.1';
 const PORT = process.env.PORT || 4000;
 const app = express();
 app.use(express.json());
-
+var router = express.Router();
 const Sequelize = require('sequelize');
 const { User } = require('./models');
 const http = require('http');
 const server = http.createServer(app);
 
-const db = new Sequelize('database_development', 'root', null, {
+app.use(express.static(path.join(__dirname, 'front-end/build')));
+
+const db = new Sequelize('database_development', "", null, {
   host: 'localhost',
   dialect: 'postgres',
 });
@@ -49,6 +51,9 @@ app.get('/', (req, res) => {
   res.send('Hello from Express!');
 });
 
+// Create router for other pages page
+var login = require('./routes/loginRegistration');
+app.use('/login', login);
 
   /* Read All Users */ 
 app.get('/users', async (req, res) => {
