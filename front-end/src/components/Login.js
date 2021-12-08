@@ -61,6 +61,11 @@ function checkRegistration() {
   }).then (res => res.json())
   .then (data => {
       console.log(data);
+      if (data.registration) {
+        toast.success('🦄 Registration Successful!');
+      } else {
+        toast.error('Already Registered!');
+      }
       navigate('/');
       // showAlert(data)
   })
