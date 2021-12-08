@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "../CSS/Login.css";
 import { useNavigate } from "react-router";
+import { toast } from 'react-toastify';
 
 
 export default function Login() {
@@ -31,7 +32,12 @@ function checkLogin() {
           password: newPassword})
   }).then (res => res.json())
   .then (data => {
-      console.log(data);
+      console.log(data.login);
+      if (data.login) {
+        toast.success('🦄 Login Successful!');
+      } else {
+        toast.error('Login Unsuccessful');
+      }
       navigate('/');
       // showAlert(data)
   })

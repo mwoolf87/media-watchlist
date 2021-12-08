@@ -11,17 +11,19 @@ import OAuth from "./components/OAuth";
 import Test from "./components/Test";
 import MediaList from "./components/MediaList";
 import DetailPage from "./components/DetailPage";
+import ToastNotification from "./components/ToastNotification";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Navigation />
+        <ToastNotification />
         <Routes>
           <Route exact path="/oauth" element={<OAuth />} />
           <Route exact path="/login" element={<Login />} />
           {/* rendering MovieList component within app.js to keep code clean */}
-
+          
           <Route exact path="/" element={<MediaList />} />
           <Route path="/watchlist" element={<Watchlist />} />
           <Route path="/about" element={<About />} />
