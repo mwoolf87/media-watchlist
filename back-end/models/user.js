@@ -19,8 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     hash: DataTypes.STRING,
     favoriteBooks: DataTypes.STRING,
-    favoriteShows: DataTypes.STRING,
-    favoriteSongs: DataTypes.STRING
+    favoriteFlicks: DataTypes.STRING,
+    favoriteApps: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',

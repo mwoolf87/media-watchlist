@@ -1,56 +1,79 @@
-import React, { useState } from "react";
+import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import "../Login.css";
-import axios from 'axios';
+import "../CSS/Login.css";
+import { useNavigate } from "react-router";
+import { toast } from 'react-toastify';
+
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [registerModalShow, setRegisterModalShow] = React.useState(false);
   const [loginModalShow, setLoginModalShow] = React.useState(false);
-  const newVariable = "";
   let newFirstName = "";
   let newLastName = "";
   let newEmail = "";
   let newPassword = "";
-
-  function validateForm() {
-    return newEmail.length > 0 && newPassword.length > 0;
-  }
-
+  const navigate = useNavigate();
   function handleSubmit(event) {
     event.preventDefault();
-
-    axios.post('http://localhost:4000/users/register', {
-      firstName: newFirstName,
-      lastName: newLastName,
-      email: newEmail,
-      password: newPassword
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
-    // function handleSubmit(event) {
-    //   event.preventDefault();
-  
-    //   axios.post('http://localhost:4000/users/login', {
-    //     email: newEmail,
-    //     password: newPassword
-    //   })
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-    // }
   }
+
+  // Check Login Function
+function checkLogin() {
+  fetch('http://127.0.0.1:4000/login/verify', {
+      method: "POST",
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+          {email: newEmail,
+          password: newPassword})
+  }).then (res => res.json())
+  .then (data => {
+      console.log(data.login);
+      if (data.login) {
+        toast.success('🦄 Login Successful!');
+      } else {
+        toast.error('Login Unsuccessful');
+      }
+      navigate('/');
+      // showAlert(data)
+  })
+  .catch(function (err) {
+      console.log('something went wrong, call on database', err); // console.log the errors if any
+  });
+}
+
+function checkRegistration() {
+  fetch('http://127.0.0.1:4000/login/register', {
+      method: "POST",
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+          {firstName: newFirstName,
+            lastName: newLastName,
+            email: newEmail,
+            password: newPassword})
+  }).then (res => res.json())
+  .then (data => {
+      console.log(data);
+      if (data.registration) {
+        toast.success('🦄 Registration Successful!');
+      } else {
+        toast.error('Already Registered!');
+      }
+      navigate('/');
+      // showAlert(data)
+  })
+  .catch(function (err) {
+      console.log('something went wrong, call on database', err); // console.log the errors if any
+  });
+}
+
   function LoginModal(props) {
     return (
       <Modal
@@ -85,7 +108,7 @@ export default function Login() {
             onChange={(e) => newPassword=(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit">
+        <Button block size="lg" type="submit" onClick={checkLogin}>
           Login
         </Button>
       </Form>
@@ -147,7 +170,7 @@ export default function Login() {
             onChange={(e) => newPassword=(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit">
+        <Button block size="lg" type="submit" onClick={checkRegistration}>
           Sign Up
         </Button>
       </Form>
