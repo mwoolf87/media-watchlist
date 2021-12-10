@@ -2,10 +2,12 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import MovieCard from "./MovieCard";
+import axios from 'axios';
 
 export default function Watchlist() {
   // grabbing state from redux and assigning it to a variable
   const watchlistData = useSelector(state => state.apiData);
+
   return (
     <div>
       <h1>Watchlist</h1>

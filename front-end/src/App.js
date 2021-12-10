@@ -12,6 +12,7 @@ import Test from "./components/Test";
 import MediaList from "./components/MediaList";
 import DetailPage from "./components/DetailPage";
 import ToastNotification from "./components/ToastNotification";
+import FavoritesCard from "./components/FavoritesCard";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
           
           <Route exact path="/" element={<MediaList />} />
           <Route path="/watchlist" element={<Watchlist />} />
+          <Route path="/favorites" element={<FavoritesCard />} />
+
           <Route path="/about" element={<About />} />
           <Route path="/moreinfo" element={<DetailPage />} />
           <Route path="/test" element={<Test />} />
