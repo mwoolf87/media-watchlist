@@ -7,34 +7,40 @@ export default function MediaList() {
   const [apiData, setApiData] = useState([]); //initializing state to store movie data from our api call in an array
   const [inputValue, setInputValue] = useState(""); //initializing state to store user input value
 
-  const [searchCriteria, setSearchCriteria] = useState("");
-
-  //`https://api.themoviedb.org/3/search/movie?api_key=516a7e6108bcc9da1620d3ae61b05091&language=en-US&query=${inputValue}&page=1&include_adult=false&region=US`
-
-  // Rating:`https://api.themoviedb.org/3/certification/movie/list?api_key=516a7e6108bcc9da1620d3ae61b05091`
+  // const [searchCriteria, setSearchCriteria] = useState("");
 
   //creating a function that makes an api call, we pass through event as a parameter to prevent the page reloading on the form submission
-  const getMovies = () => {
-    //preventing page from reloading
-
+  const getMovies = e => {
+    e.preventDefault();
     axios
-      .get(
-        `https://api.themoviedb.org/3/movie/550?api_key=516a7e6108bcc9da1620d3ae61b05091&l&language=en-USapend_to_response=providers`
-      )
+      .get(`http://www.omdbapi.com/?s=${inputValue}&apikey=39132f6b`)
       .then(res => res.data)
       .then(data => {
-        //setting the inputValue back to an empty string to clear the search bar when you press the search button
-        setInputValue("");
-        //setting the movie data we get back from the response of the api to our movieData state
-        console.log(data);
-        return setApiData(data.results);
+        let dataLength = data.Search.length;
+        let detailedMovieApi = [];
+        for (let i = 0; i < dataLength; i++) {
+          let imdbIDNumber = data.Search[i].imdbID;
+          // console.log(imdbIDNumber);
+          axios
+            .get(`http://www.omdbapi.com/?i=${imdbIDNumber}&apikey=39132f6b`)
+            .then(res => res.data)
+            .then(data => {
+              detailedMovieApi.push(data);
+            });
+        }
+        console.log(detailedMovieApi);
+        setApiData(detailedMovieApi);
       });
   };
+  //setting the inputValue back to an empty string to clear the search bar when you press the search button
+  // setInputValue("");
+  //setting the movie data we get back from the response of the api to our movieData state
+  // return setApiData(data.Search);
 
-  const handleSearchChange = e => {
-    setSearchCriteria(e.target.value);
-  };
-
+  // const handleSearchChange = e => {
+  //   setSearchCriteria(e.target.value);
+  // };
+  // ----------- Function to search for book data
   // const getBooks = () => {
   //   axios
   //     .get(
@@ -47,15 +53,15 @@ export default function MediaList() {
   //       return setApiData(data.items);
   //     });
   // };
-
-  const searchApi = e => {
-    e.preventDefault();
-    if (searchCriteria === "movies") {
-      getMovies();
-      // } else if (searchCriteria === "books") {
-      //   getBooks();
-    }
-  };
+  // ------ Function to call Media types dependant on search criteria
+  // const searchApi = e => {
+  //   e.preventDefault();
+  //   if (searchCriteria === "movies") {
+  //     getMovies();
+  //     // } else if (searchCriteria === "books") {
+  //     //   getBooks();
+  //   }
+  // };
 
   // function created to set the state of inputValue to the value of the input
   const handleChange = event => {
@@ -63,45 +69,44 @@ export default function MediaList() {
   };
 
   // getting default movies
-  // const getDefaultMovies = () => {
-  //   axios
-  //     .get(
-  //       `https://api.themoviedb.org/3/discover/movie?api_key=516a7e6108bcc9da1620d3ae61b05091&certification_country=US&certification.lte=G,PG&sort_by=popularity.de`
-  //     )
-  //     .then(res => res.data)
-  //     .then(data => {
-  //       console.log("api called");
-  //       return setApiData(data.results);
-  //     });
-  // };
+  const getDefaultMovies = () => {
+    axios
+      .get(`http://www.omdbapi.com/?s="Toy+Story"&apikey=39132f6b`)
+      .then(res => res.data)
+      .then(data => {
+        return setApiData(data.Search);
+      });
+  };
 
-  // useEffect(() => {
-  //   getDefaultMovies();
-  // }, []);
+  useEffect(() => {
+    getDefaultMovies();
+  }, []);
 
   return (
     <div>
       <h1>RecommendMe</h1>
       {/* Created form to handle user input and search button */}
-      <Form onSubmit={searchApi}>
+      <Form onSubmit={getMovies}>
         {/* <form onSubmit={getBooks}> */}
         {/* text input that has an event handler of onChange that runs the handleChange function defined on line 18 */}
         <input value={inputValue} onChange={handleChange} type="text" />
         {/* submit button to submit the form */}
 
         <Button type="submit">Search</Button>
-        <select id="media" name="media" onChange={e => handleSearchChange(e)}>
+
+        {/* SELECT SEARCH TYPE IF WE WANT TO INTRODUCE OTHER MEDIUMS */}
+        {/* <select id="media" name="media" onChange={e => handleSearchChange(e)}>
           <option value="">Select Books, Movie and More</option>
           <option value="books">Books</option>
           <option value="movies">Movies</option>
           <option value="tvshows">TV Shows</option>
           <option value="secondmovieAPI">Second Movie API</option>
-        </select>
+        </select> */}
       </Form>
 
       <div className="movie-container">
         <Row>
-          {/* {apiData.map((data, id) => {
+          {apiData.map((movie, id) => {
             return (
               <Col
                 key={id}
@@ -112,14 +117,10 @@ export default function MediaList() {
                 xl={4}
                 className="mb-6"
               >
-                {searchCriteria === "movies" ? (
-                  <MovieCard data={data} />
-                ) : (
-                  <h1>Hello Book</h1>
-                )}
+                <MovieCard movie={movie} />
               </Col>
             );
-          })} */}
+          })}
         </Row>
       </div>
     </div>
