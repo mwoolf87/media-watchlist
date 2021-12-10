@@ -6,9 +6,6 @@ module.exports = {
       lastName: 'admin',
       email: 'test@admin.com',
       hash: 'test',
-      favoriteBooks: "",
-      favoriteFlicks: "",
-      favoriteApps: "",
       createdAt: new Date(),
       updatedAt: new Date()
   }], {});

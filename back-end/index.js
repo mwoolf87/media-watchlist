@@ -14,6 +14,8 @@ const server = http.createServer(app);
 
 app.use(express.static(path.join(__dirname, 'front-end/build')));
 
+const models = require('./models');
+
 const db = new Sequelize('database_development', "", null, {
   host: 'localhost',
   dialect: 'postgres',
@@ -53,6 +55,7 @@ app.get('/', (req, res) => {
 
 // Create router for other pages page
 var login = require('./routes/loginRegistration');
+const { REPL_MODE_SLOPPY } = require('repl');
 app.use('/login', login);
 
   /* Read All Users */ 
@@ -60,6 +63,12 @@ app.get('/users', async (req, res) => {
   const users = await User.findAll();
   res.status(200).json(users);
 });
+
+// Read Movies that Match a User
+app.get('/favorites/:UserId', async (req, res) => {
+  const favorites = await models.Flick.findByPk(req.params.UserId);
+  res.json(favorites)
+})
 
 /* Read User by Id */
 app.get('/users/:id', async (req, res) => {
