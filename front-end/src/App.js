@@ -15,6 +15,8 @@ import ToastNotification from "./components/ToastNotification";
 import FavoritesCard from "./components/FavoritesCard";
 
 function App() {
+
+
   return (
     <div className="App">
       <Router>
