@@ -2,8 +2,39 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { setApiData } from "../redux/actions/movieData-actions";
+import { setModalData } from "../redux/actions/detailedMovieData-actions";
 
 export default function MovieCard(props) {
+  // Function to trigger modal to show
+
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+
+  /* 
+  function showModal() {
+    const [modalShow, setModalShow] = React.useState(false);
+
+    return (
+      <>
+        <Button variant="primary" onClick={() => setModalShow(true)}>
+          Launch vertically centered modal
+        </Button>
+
+        <detailedMovieModal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        />
+      </>
+    );
+  } 
+  */
+
+  /*
+  <Button
+            onClick={() => dispatch(setModalData(props.movie))}
+            variant="warning"
+          >*/
+
   // defining dispatch to use on line 22
   const dispatch = useDispatch();
   //deconstructing props here
@@ -26,9 +57,17 @@ export default function MovieCard(props) {
 
           {/* calling dispatch to set the state of our watchlist data in reducer */}
           {/* Parents guide from IMDB */}
-          <Button id="moreinfobutton" variant="warning">
+          <Button
+            onClick={() => dispatch(setModalData(props.movie))}
+            variant="warning"
+          >
             More Info
           </Button>
+          {/*           
+          <Button variant="primary" onClick={handleShow}>
+            Launch demo modal
+          </Button>*/}
+
           <Button onClick={() => dispatch(setApiData(props.movie))}>
             Add to Watchlist
           </Button>

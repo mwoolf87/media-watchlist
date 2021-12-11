@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Row, Button, Form } from "react-bootstrap";
 import MovieCard from "./MovieCard";
-
 export default function MediaList() {
   const [apiData, setApiData] = useState([]); //initializing state to store movie data from our api call in an array
   const [inputValue, setInputValue] = useState(""); //initializing state to store user input value
@@ -85,7 +84,6 @@ export default function MediaList() {
 
         <Button type="submit">Search</Button>
       </Form>
-
       <div className="movie-container">
         <Row>
           {apiData.map((movie, id) => {
