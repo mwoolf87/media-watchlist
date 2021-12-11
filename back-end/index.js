@@ -11,6 +11,13 @@ const Sequelize = require('sequelize');
 const { User } = require('./models');
 const http = require('http');
 const server = http.createServer(app);
+const passport = require('passport');
+require('./passport')
+const cookieSession = require('cookie-session')
+app.use(cookieSession({
+  name: 'github-auth-session',
+  keys: ['key1', 'key2']
+}))
 
 app.use(express.static(path.join(__dirname, 'front-end/build')));
 
@@ -46,6 +53,16 @@ app.all('*', (req, res, next) => {
     res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json')
     // console.log(`${req.method} ${req.path}`);
     next();
+  });
+
+
+//Oauth routes
+
+app.get('/auth/error', (req, res) => res.send('Unknown Error'))
+app.get('/auth/github', passport.authenticate('github', { scope: ['user:email'] }));
+app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/auth/error' }),
+  function (req, res) {
+    res.redirect('/');
   });
 
 // Test get
