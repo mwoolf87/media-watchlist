@@ -27,7 +27,7 @@ export default function MovieCard(props) {
           {/* calling dispatch to set the state of our watchlist data in reducer */}
           {/* Parents guide from IMDB */}
           <Button id="moreinfobutton" variant="warning">
-            <a href="/moreinfo">More Info</a>
+            More Info
           </Button>
           <Button onClick={() => dispatch(setApiData(props.movie))}>
             Add to Watchlist
