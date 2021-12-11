@@ -7,65 +7,58 @@ export default function MediaList() {
   const [apiData, setApiData] = useState([]); //initializing state to store movie data from our api call in an array
   const [inputValue, setInputValue] = useState(""); //initializing state to store user input value
 
-  // const [searchCriteria, setSearchCriteria] = useState("");
-
-  //creating a function that makes an api call, we pass through event as a parameter to prevent the page reloading on the form submission
-  const getMovies = e => {
-    e.preventDefault();
-    axios
-      .get(`http://www.omdbapi.com/?s=${inputValue}&apikey=39132f6b`)
-      .then(res => res.data)
-      .then(data => {
-        let dataLength = data.Search.length;
-        let detailedMovieApi = [];
-        for (let i = 0; i < dataLength; i++) {
-          let imdbIDNumber = data.Search[i].imdbID;
-          // console.log(imdbIDNumber);
-          axios
-            .get(`http://www.omdbapi.com/?i=${imdbIDNumber}&apikey=39132f6b`)
-            .then(res => res.data)
-            .then(data => {
-              detailedMovieApi.push(data);
-            });
-        }
-        console.log(detailedMovieApi);
-        setApiData(detailedMovieApi);
-      });
-  };
-  //setting the inputValue back to an empty string to clear the search bar when you press the search button
-  // setInputValue("");
-  //setting the movie data we get back from the response of the api to our movieData state
-  // return setApiData(data.Search);
-
-  // const handleSearchChange = e => {
-  //   setSearchCriteria(e.target.value);
-  // };
-  // ----------- Function to search for book data
-  // const getBooks = () => {
+  // const getMovies = e => {
+  //   e.preventDefault();
   //   axios
-  //     .get(
-  //       `https://www.googleapis.com/books/v1/volumes?q=${inputValue}&key=AIzaSyCnojgLZsM_gkX8d83JS_bqbCB7y_qRREQ`
-  //     )
+  //     .get(`http://www.omdbapi.com/?s=${inputValue}&apikey=39132f6b`)
   //     .then(res => res.data)
   //     .then(data => {
-  //       setInputValue("");
-  //       // console.log(data.items);
-  //       return setApiData(data.items);
+  //       let dataLength = data.Search.length;
+  //       let detailedMovieApi = [];
+  //       for (let i = 0; i < dataLength; i++) {
+  //         let imdbIDNumber = data.Search[i].imdbID;
+  //         axios
+  //           .get(`http://www.omdbapi.com/?i=${imdbIDNumber}&apikey=39132f6b`)
+  //           .then(res => res.data)
+  //           .then(movie => {
+  //             debugger;
+  //             detailedMovieApi.push(movie);
+  //           });
+  //       }
+  //       setApiData(detailedMovieApi);
+  //       console.log(detailedMovieApi);
   //     });
-  // };
-  // ------ Function to call Media types dependant on search criteria
-  // const searchApi = e => {
-  //   e.preventDefault();
-  //   if (searchCriteria === "movies") {
-  //     getMovies();
-  //     // } else if (searchCriteria === "books") {
-  //     //   getBooks();
-  //   }
   // };
 
   // function created to set the state of inputValue to the value of the input
+  const getMovies = async e => {
+    try {
+      e.preventDefault();
+      const response = await axios.get(
+        `http://www.omdbapi.com/?s=${inputValue}&apikey=39132f6b`
+      );
+      const moviesArray = response.data.Search.map(async movie => {
+        const detailedRes = await axios.get(
+          `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=39132f6b`
+        );
+
+        return Promise.resolve(detailedRes.data);
+      });
+
+      const detailedMovies = await Promise.all(moviesArray);
+      return detailedMovies;
+    } catch (error) {
+      return [];
+    }
+  };
+
   const handleChange = event => {
     setInputValue(event.target.value);
+  };
+
+  const handleSubmit = async event => {
+    const movies = await getMovies(event);
+    setApiData(movies);
   };
 
   // getting default movies
@@ -84,24 +77,13 @@ export default function MediaList() {
 
   return (
     <div>
-      <h1>RecommendMe</h1>
-      {/* Created form to handle user input and search button */}
-      <Form onSubmit={getMovies}>
-        {/* <form onSubmit={getBooks}> */}
+      <h1>Media-Watchlist</h1>
+
+      <Form onSubmit={handleSubmit}>
         {/* text input that has an event handler of onChange that runs the handleChange function defined on line 18 */}
         <input value={inputValue} onChange={handleChange} type="text" />
-        {/* submit button to submit the form */}
 
         <Button type="submit">Search</Button>
-
-        {/* SELECT SEARCH TYPE IF WE WANT TO INTRODUCE OTHER MEDIUMS */}
-        {/* <select id="media" name="media" onChange={e => handleSearchChange(e)}>
-          <option value="">Select Books, Movie and More</option>
-          <option value="books">Books</option>
-          <option value="movies">Movies</option>
-          <option value="tvshows">TV Shows</option>
-          <option value="secondmovieAPI">Second Movie API</option>
-        </select> */}
       </Form>
 
       <div className="movie-container">
