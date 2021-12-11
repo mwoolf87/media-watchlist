@@ -18,12 +18,12 @@ module.exports = {
         type: Sequelize.STRING
       },
       year: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       director: {
         type: Sequelize.STRING
       },
-      rating: {
+      imdbRating: {
         type: Sequelize.STRING
       },
       UserId: {
@@ -32,6 +32,27 @@ module.exports = {
           model: 'Users',
           key: 'id',
         }
+      },
+      genre: {
+        type: Sequelize.STRING
+      },
+      language: {
+        type: Sequelize.STRING
+      },
+      metaScore: {
+        type: Sequelize.STRING
+      },
+      plot: {
+        type: Sequelize.STRING
+      },
+      rated: {
+        type: Sequelize.STRING
+      },
+      released: {
+        type: Sequelize.STRING
+      },
+      imdbID: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

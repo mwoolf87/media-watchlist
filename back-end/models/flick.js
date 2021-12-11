@@ -18,10 +18,19 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     poster: DataTypes.STRING,
     runTime: DataTypes.STRING,
-    year: DataTypes.INTEGER,
+    year: DataTypes.STRING,
     director: DataTypes.STRING,
-    rating: DataTypes.STRING,
-    UserId: DataTypes.INTEGER
+    imdbRating: DataTypes.STRING,
+    UserId: DataTypes.STRING,
+    genre: DataTypes.STRING,
+    language: DataTypes.STRING,
+    metaScore: DataTypes.STRING,
+    plot: DataTypes.STRING,
+    rated: DataTypes.STRING,
+    released: DataTypes.STRING,
+    imdbID: DataTypes.STRING
+
+
   }, {
     sequelize,
     modelName: 'Flick',
