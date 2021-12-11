@@ -1,5 +1,6 @@
+import React from "react";
 import { Modal, Button } from "react-bootstrap";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 export default function detailedMovieModal(props) {
   // const DetailedMovieData = useSelector((state) => state.)
@@ -18,7 +19,7 @@ export default function detailedMovieModal(props) {
         <p></p>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button onClick={() => props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );

@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Col, Row, Button, Form } from "react-bootstrap";
+import { Col, Row, Button, Form, Modal } from "react-bootstrap";
 import MovieCard from "./MovieCard";
+import MovieModal from "./MovieModal";
 export default function MediaList() {
   const [apiData, setApiData] = useState([]); //initializing state to store movie data from our api call in an array
   const [inputValue, setInputValue] = useState(""); //initializing state to store user input value
@@ -30,6 +31,7 @@ export default function MediaList() {
   // };
 
   // function created to set the state of inputValue to the value of the input
+
   const getMovies = async e => {
     try {
       e.preventDefault();

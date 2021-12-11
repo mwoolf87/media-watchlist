@@ -1,18 +1,19 @@
-import React from "react";
-import { Card, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Card, Button, Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { setApiData } from "../redux/actions/movieData-actions";
 import { setModalData } from "../redux/actions/detailedMovieData-actions";
+import MovieModal from "./MovieModal";
 
 export default function MovieCard(props) {
   // Function to trigger modal to show
 
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
+  const [modalShow, setModalShow] = useState(false);
 
+  const handleClose = () => setModalShow(false);
+  const handleShow = () => setModalShow(true);
   /* 
   function showModal() {
-    const [modalShow, setModalShow] = React.useState(false);
 
     return (
       <>
@@ -58,7 +59,7 @@ export default function MovieCard(props) {
           {/* calling dispatch to set the state of our watchlist data in reducer */}
           {/* Parents guide from IMDB */}
           <Button
-            onClick={() => dispatch(setModalData(props.movie))}
+            onClick={() => setModalShow(true)}
             variant="warning"
           >
             More Info
@@ -73,6 +74,22 @@ export default function MovieCard(props) {
           </Button>
         </Card.Body>
       </Card>
+      {modalShow && <Modal />}
+
+    <Modal show={modalShow} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Modal heading</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+        <Button variant="primary" onClick={handleClose}>
+          Save Changes
+        </Button>
+      </Modal.Footer>
+    </Modal>
     </div>
   );
 }
