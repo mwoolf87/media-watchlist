@@ -10,7 +10,7 @@ import About from "./components/About";
 import OAuth from "./components/OAuth";
 import Test from "./components/Test";
 import MediaList from "./components/MediaList";
-import DetailPage from "./components/DetailPage";
+import MovieModal from "./components/MovieModal";
 import ToastNotification from "./components/ToastNotification";
 import FavoritesCard from "./components/FavoritesCard";
 
@@ -26,13 +26,12 @@ function App() {
           <Route exact path="/oauth" element={<OAuth />} />
           <Route exact path="/login" element={<Login />} />
           {/* rendering MovieList component within app.js to keep code clean */}
-          
+
           <Route exact path="/" element={<MediaList />} />
           <Route path="/watchlist" element={<Watchlist />} />
           <Route path="/favorites" element={<FavoritesCard />} />
 
           <Route path="/about" element={<About />} />
-          <Route path="/moreinfo" element={<DetailPage />} />
           <Route path="/test" element={<Test />} />
         </Routes>
       </Router>
