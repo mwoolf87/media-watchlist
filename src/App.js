@@ -1,6 +1,7 @@
 import "./App.css";
 //importing react-bootstrap css in app.js
-
+import React from 'react';
+import ReactDOM from 'react-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/Login";
 import Watchlist from "./components/Watchlist";
@@ -15,8 +16,6 @@ import ToastNotification from "./components/ToastNotification";
 import FavoritesCard from "./components/FavoritesCard";
 
 function App() {
-
-
   return (
     <div className="App">
       <Router>
