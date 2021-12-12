@@ -1,6 +1,7 @@
 import "./App.css";
 //importing react-bootstrap css in app.js
-import React from 'react'
+import React from 'react';
+import ReactDOM from 'react-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/Login";
 import Watchlist from "./components/Watchlist";
