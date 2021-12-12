@@ -1,10 +1,12 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Image from 'react-bootstrap/Image';
 import Modal from "react-bootstrap/Modal";
 import "../CSS/Login.css";
 import { useNavigate } from "react-router";
 import { toast } from 'react-toastify';
+import MWL from './Images/MWL.jpeg';
 
 
 export default function Login() {
@@ -185,11 +187,14 @@ function checkRegistration() {
 
     return (
       <>
-        <Button className="m-2" block size="lg" onClick={() => setLoginModalShow(true)}>
+      <div>
+      <Image className="profilePic" src={MWL} alt="Profile Pic" rounded />
+      </div>
+        <Button className="button-19 m-2" role="button" block size="lg" onClick={() => setLoginModalShow(true)}>
           Login
         </Button>
 
-        <Button block size="lg" onClick={() => setRegisterModalShow(true)}>
+        <Button className="button-19 m-2" block size="lg" onClick={() => setRegisterModalShow(true)}>
           Signup
         </Button>
   
