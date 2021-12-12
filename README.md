@@ -250,4 +250,8 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
+<<<<<<< HEAD
 [product-screenshot]: images/screenshot.png
+=======
+[product-screenshot]: images/screenshot.png
+>>>>>>> 9944ac95d6ac781b674bddcc31292ecc348d4c1b
