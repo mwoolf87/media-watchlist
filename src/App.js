@@ -1,7 +1,7 @@
 import "./App.css";
 //importing react-bootstrap css in app.js
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/Login";
 import Watchlist from "./components/Watchlist";
@@ -11,7 +11,6 @@ import About from "./components/About";
 import OAuth from "./components/OAuth";
 import Test from "./components/Test";
 import MediaList from "./components/MediaList";
-import MovieModal from "./components/MovieModal";
 import ToastNotification from "./components/ToastNotification";
 import FavoritesCard from "./components/FavoritesCard";
 
