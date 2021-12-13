@@ -12,7 +12,7 @@ export default function FavoritesCard() {
   const getFavorites = () => {
       axios
         .get(
-        `http://localhost:4000/favorites/1`)
+        `https://new-mwl-backend.herokuapp.com/favorites/1`)
       .then(res => setFavorites(res.data))
        };
 
