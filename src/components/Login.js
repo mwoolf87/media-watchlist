@@ -23,7 +23,7 @@ export default function Login() {
 
   // Check Login Function
 function checkLogin() {
-  fetch('http://127.0.0.1:4000/login/verify', {
+  fetch('https://new-mwl-backend.herokuapp.com/login/verify', {
       method: "POST",
       headers: {
           'Accept': 'application/json',
@@ -49,7 +49,7 @@ function checkLogin() {
 }
 
 function checkRegistration() {
-  fetch('http://127.0.0.1:4000/login/register', {
+  fetch('https://new-mwl-backend.herokuapp.com/login/register', {
       method: "POST",
       headers: {
           'Accept': 'application/json',
