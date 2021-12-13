@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Container from "react-bootstrap/Container";
 
 function Contact() {
-    const [forum, setForum] = useState([]);
+    /* const [forum, setForum] = useState([]);
 
     // Trigger off of button press
     const getForumInfo = (event) => {
          //preventing page from reloading 
          event.preventDefault()
          console.log('button pressed!');
-    }
+    } */
 
   
     
@@ -22,7 +22,7 @@ function Contact() {
             method="POST"
             action="send"
             enctype="multipart/form-data"
-            onSubmit = {getForumInfo}
+            /* onSubmit = /* {/* getForumInfo  */
             >
             <div class="form-group">
                 <div class="row">
@@ -92,6 +92,6 @@ function Contact() {
         </Container>
         </div>
     );
-    }
+}
 
 export default Contact;
