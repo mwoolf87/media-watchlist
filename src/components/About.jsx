@@ -1,5 +1,4 @@
 import React from "react";
-//  import { Scott_aboutUS } from "./../../public/Scott_aboutUS.jpeg";
 import GitHub from "./Images/githubLogo.png";
 import LinkedIn from "./Images/linkedinLogo.png";
 import Image from 'react-bootstrap/Image';
