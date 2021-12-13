@@ -10,11 +10,11 @@ export default function MediaList() {
     try {
       e.preventDefault();
       const response = await axios.get(
-        `http://www.omdbapi.com/?s=${inputValue}&apikey=39132f6b`
+        `https://www.omdbapi.com/?s=${inputValue}&apikey=39132f6b`
       );
       const moviesArray = response.data.Search.map(async movie => {
         const detailedRes = await axios.get(
-          `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=39132f6b`
+          `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=39132f6b`
         );
 
         return Promise.resolve(detailedRes.data);
