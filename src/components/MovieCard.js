@@ -3,7 +3,6 @@ import { Card, Button, Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { setApiData } from "../redux/actions/movieData-actions";
 import { setModalData } from "../redux/actions/detailedMovieData-actions";
-import MovieModal from "./MovieModal";
 
 export default function MovieCard(props) {
   // Function to trigger modal to show
@@ -12,29 +11,6 @@ export default function MovieCard(props) {
 
   const handleClose = () => setModalShow(false);
   const handleShow = () => setModalShow(true);
-  /* 
-  function showModal() {
-
-    return (
-      <>
-        <Button variant="primary" onClick={() => setModalShow(true)}>
-          Launch vertically centered modal
-        </Button>
-
-        <detailedMovieModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-        />
-      </>
-    );
-  } 
-  */
-
-  /*
-  <Button
-            onClick={() => dispatch(setModalData(props.movie))}
-            variant="warning"
-          >*/
 
   // defining dispatch to use on line 22
   const dispatch = useDispatch();
@@ -42,7 +18,7 @@ export default function MovieCard(props) {
 
   const CAT_404 = "https://http.cat/404";
 
-  const { Title, Year, Poster, Rated } = props.movie;
+  const { Title, Year, Poster, Rated, Plot } = props.movie;
 
   return (
     <div className="movie-card-container">
@@ -58,10 +34,7 @@ export default function MovieCard(props) {
 
           {/* calling dispatch to set the state of our watchlist data in reducer */}
           {/* Parents guide from IMDB */}
-          <Button
-            onClick={() => setModalShow(true)}
-            variant="warning"
-          >
+          <Button onClick={() => setModalShow(true)} variant="warning">
             More Info
           </Button>
           {/*           
@@ -76,20 +49,20 @@ export default function MovieCard(props) {
       </Card>
       {modalShow && <Modal />}
 
-    <Modal show={modalShow} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Modal heading</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={handleClose}>
-          Save Changes
-        </Button>
-      </Modal.Footer>
-    </Modal>
+      <Modal show={modalShow} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{Title}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{Plot}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

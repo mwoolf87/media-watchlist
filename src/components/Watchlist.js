@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import MovieCard from "./MovieCard";
-import axios from 'axios';
+import axios from "axios";
 
 export default function Watchlist() {
   // grabbing state from redux and assigning it to a variable
