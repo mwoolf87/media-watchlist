@@ -24,35 +24,20 @@
       }
     }
   
-  /* Button CSS */
+
+  html,body{margin:0}
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    border-bottom: 1px solid white;
+    padding-top: 0;
+    
+  }  
   .nav-links {
-    background-color: var(--SiteGreen);
-    border: solid transparent;
-    border-radius: 16px;
-    border-width: 0 0 4px;
-    box-sizing: border-box;
-    color: var(--SiteBlue);
-    cursor: pointer;
-    display: inline-block;
-    font-family: din-round,sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: .8px;
-    line-height: 20px;
-    margin: 0;
-    outline: none;
-    overflow: visible;
-    padding: 13px 16px;
-    text-align: center;
-    text-transform: uppercase;
-    touch-action: manipulation;
-    transform: translateZ(0);
-    transition: filter .2s;
-    user-select: none;
-    -webkit-user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 100%;
+    display: inline;
+    padding-right: 30px;
   }
   
   .button-19:after {
