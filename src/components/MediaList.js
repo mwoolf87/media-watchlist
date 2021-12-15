@@ -10,19 +10,24 @@ export default function MediaList() {
     try {
       e.preventDefault();
       const response = await axios.get(
-        `https://www.omdbapi.com/?s=${inputValue}&apikey=39132f6b`
+        `https://www.omdbapi.com/?s=${inputValue}&apikey=39132f6b&type=movie`
       );
-      const moviesArray = response.data.Search.map(async movie => {
-        const detailedRes = await axios.get(
-          `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=39132f6b`
-        );
+      if (response.data.Search) {
+        const moviesArray = response.data.Search.map(async movie => {
+          const detailedRes = await axios.get(
+            `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=39132f6b&type=movie`
+          );
 
-        return Promise.resolve(detailedRes.data);
-      });
+          return Promise.resolve(detailedRes.data);
+        });
 
-      const detailedMovies = await Promise.all(moviesArray);
-      return detailedMovies;
+        const detailedMovies = await Promise.all(moviesArray);
+        return detailedMovies;
+      } else {
+        return [];
+      }
     } catch (error) {
+      console.log(error);
       return [];
     }
   };
@@ -40,7 +45,7 @@ export default function MediaList() {
   const getDefaultMovies = async () => {
     try {
       const response = await axios.get(
-        `http://www.omdbapi.com/?s=Toy+Story&apikey=39132f6b`
+        `http://www.omdbapi.com/?s=Toy+Story&apikey=39132f6b&type=movie`
       );
       const moviesArray = response.data.Search.map(async movie => {
         const detailedRes = await axios.get(
@@ -51,7 +56,6 @@ export default function MediaList() {
       });
 
       const detailedMovies = await Promise.all(moviesArray);
-      console.log(detailedMovies);
       setApiData(detailedMovies);
       return detailedMovies;
     } catch (error) {
@@ -74,23 +78,27 @@ export default function MediaList() {
         <Button type="submit">Search</Button>
       </Form>
       <div className="movie-container">
-        <Row>
-          {apiData.map((movie, id) => {
-            return (
-              <Col
-                key={id}
-                xs={12}
-                sm={6}
-                md={6}
-                lg={6}
-                xl={4}
-                className="mb-6"
-              >
-                <MovieCard movie={movie} />
-              </Col>
-            );
-          })}
-        </Row>
+        {apiData.length === 0 ? (
+          <p className="error-message">Invalid Search Please Try Again</p>
+        ) : (
+          <Row>
+            {apiData.map((movie, id) => {
+              return (
+                <Col
+                  key={id}
+                  xs={12}
+                  sm={6}
+                  md={6}
+                  lg={6}
+                  xl={4}
+                  className="mb-6"
+                >
+                  <MovieCard movie={movie} />
+                </Col>
+              );
+            })}
+          </Row>
+        )}
       </div>
     </div>
   );
