@@ -37,10 +37,10 @@ function checkLogin() {
       console.log(data.login);
       if (data.login) {
         toast.success('🦄 Login Successful!');
+        navigate('/');
       } else {
         toast.error('Login Unsuccessful');
       }
-      navigate('/');
       // showAlert(data)
   })
   .catch(function (err) {
@@ -65,10 +65,10 @@ function checkRegistration() {
       console.log(data);
       if (data.registration) {
         toast.success('🦄 Registration Successful!');
+        navigate('/');
       } else {
         toast.error('Already Registered!');
       }
-      navigate('/');
       // showAlert(data)
   })
   .catch(function (err) {
