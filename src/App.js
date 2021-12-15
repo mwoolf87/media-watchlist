@@ -13,6 +13,7 @@ import Test from "./components/Test";
 import MediaList from "./components/MediaList";
 import ToastNotification from "./components/ToastNotification";
 import FavoritesCard from "./components/FavoritesCard";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/" element={<MediaList />} />
           <Route path="/watchlist" element={<Watchlist />} />
           <Route path="/favorites" element={<FavoritesCard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
 
           <Route path="/about" element={<About />} />
           <Route path="/test" element={<Test />} />
