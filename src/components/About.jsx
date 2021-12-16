@@ -36,7 +36,7 @@ function About() {
                             <a href="https://github.com/julszymanski">
                                 <img className="about-logo" src={GitHub} alt="GithubLogo"></img>
                             </a>
-                            <a href = "#">
+                            <a href = "https://js-my-portfolio-react.herokuapp.com/">
                                 <img className = "about-logo" src = {external} alt = "PorfolioLink" />
                             </a>
                             </Col>
@@ -65,7 +65,7 @@ function About() {
                             <a href="https://github.com/mwoolf87">
                                 <img className="about-logo" src={GitHub} alt="GithubLogo"></img>
                             </a>
-                            <a href = "#">
+                            <a href = "https://mwoolfdev.netlify.app/">
                                 <img className = "about-logo" src = {external} alt = "PorfolioLink" />
                             </a>
                             </Col>
