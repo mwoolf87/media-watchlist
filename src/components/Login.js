@@ -23,8 +23,9 @@ export default function Login() {
 
   // Check Login Function
 function checkLogin() {
-  fetch('http://127.0.0.1:4000/login/verify', {
+  fetch('http://127.0.0.1:4000/login2', {
       method: "POST",
+      credentials: "include",
       headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -34,13 +35,13 @@ function checkLogin() {
           password: newPassword})
   }).then (res => res.json())
   .then (data => {
-      console.log(data.login);
-      if (data.login) {
+      console.log(data);
+      if (data) {
         toast.success('🦄 Login Successful!');
+        navigate('/');
       } else {
         toast.error('Login Unsuccessful');
       }
-      navigate('/');
       // showAlert(data)
   })
   .catch(function (err) {
