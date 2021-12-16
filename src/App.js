@@ -1,7 +1,7 @@
 import "./App.css";
 //importing react-bootstrap css in app.js
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/Login";
 import Watchlist from "./components/Watchlist";
@@ -11,9 +11,9 @@ import About from "./components/About";
 import OAuth from "./components/OAuth";
 import Test from "./components/Test";
 import MediaList from "./components/MediaList";
-import MovieModal from "./components/MovieModal";
 import ToastNotification from "./components/ToastNotification";
 import FavoritesCard from "./components/FavoritesCard";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -29,6 +29,7 @@ function App() {
           <Route exact path="/" element={<MediaList />} />
           <Route path="/watchlist" element={<Watchlist />} />
           <Route path="/favorites" element={<FavoritesCard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
 
           <Route path="/about" element={<About />} />
           <Route path="/test" element={<Test />} />

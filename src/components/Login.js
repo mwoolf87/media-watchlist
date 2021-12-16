@@ -8,7 +8,6 @@ import { useNavigate } from "react-router";
 import { toast } from 'react-toastify';
 import MWL from './Images/MWL.jpeg';
 
-
 export default function Login() {
   const [registerModalShow, setRegisterModalShow] = React.useState(false);
   const [loginModalShow, setLoginModalShow] = React.useState(false);
@@ -23,7 +22,7 @@ export default function Login() {
 
   // Check Login Function
 function checkLogin() {
-  fetch('http://127.0.0.1:4000/login2', {
+  fetch('https://new-mwl-backend.herokuapp.com/login2', {
       method: "POST",
       credentials: "include",
       headers: {
@@ -50,7 +49,7 @@ function checkLogin() {
 }
 
 function checkRegistration() {
-  fetch('http://127.0.0.1:4000/login/register', {
+  fetch('https://new-mwl-backend.herokuapp.com/login/register', {
       method: "POST",
       headers: {
           'Accept': 'application/json',
@@ -66,10 +65,10 @@ function checkRegistration() {
       console.log(data);
       if (data.registration) {
         toast.success('🦄 Registration Successful!');
+        navigate('/');
       } else {
         toast.error('Already Registered!');
       }
-      navigate('/');
       // showAlert(data)
   })
   .catch(function (err) {

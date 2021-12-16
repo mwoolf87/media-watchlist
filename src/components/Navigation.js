@@ -6,13 +6,14 @@ import "../CSS/NavBar.css";
 
 export default function Navigation() {
     return (
-        <Container>
+        <Container className="navbar">
             <Navbar className="nav-links" expand="lg" variant="dark" bg="dark">
-                    <Link className="m-1" to="/">Home</Link>
-                    <Link to="/watchlist">Watchlist</Link>
-                    <Link to="/favorites">Favorites</Link>
-                    <Link to="/aboutus">AboutUs</Link>
-                    <Link to="/test">Test</Link>
+                    <Link className="m-3" to="/">Home</Link>
+                    <Link className="m-3" to="/watchlist">Watchlist</Link>
+                    <Link className="m-3" to="/favorites">Favorites</Link>
+                    <Link className="m-3" to="/aboutus">AboutUs</Link>
+                    <Link className="m-3" to="/dashboard">Dashboard</Link>
+                    <Link className="m-3" to="/test">Test</Link>
             </Navbar>
         </Container>
 

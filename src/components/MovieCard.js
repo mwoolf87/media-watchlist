@@ -1,40 +1,30 @@
 import React, { useState } from "react";
-import { Card, Button, Modal } from "react-bootstrap";
+import {
+  Card,
+  Button,
+  Modal,
+  Container,
+  Row,
+  Col,
+  Image
+} from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { setApiData } from "../redux/actions/movieData-actions";
 import { setModalData } from "../redux/actions/detailedMovieData-actions";
-import MovieModal from "./MovieModal";
+import imdblogo from "./Images/imdb.png";
+import csmlogo from "./Images/csm.png";
+import justwatch from "./Images/justwatch-square.png";
+import "../CSS/MovieCard.css";
 
 export default function MovieCard(props) {
   // Function to trigger modal to show
+
+  // Todo: Guard against 404 errors on url links on modal
 
   const [modalShow, setModalShow] = useState(false);
 
   const handleClose = () => setModalShow(false);
   const handleShow = () => setModalShow(true);
-  /* 
-  function showModal() {
-
-    return (
-      <>
-        <Button variant="primary" onClick={() => setModalShow(true)}>
-          Launch vertically centered modal
-        </Button>
-
-        <detailedMovieModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-        />
-      </>
-    );
-  } 
-  */
-
-  /*
-  <Button
-            onClick={() => dispatch(setModalData(props.movie))}
-            variant="warning"
-          >*/
 
   // defining dispatch to use on line 22
   const dispatch = useDispatch();
@@ -42,7 +32,30 @@ export default function MovieCard(props) {
 
   const CAT_404 = "https://http.cat/404";
 
-  const { Title, Year, Poster, Rated } = props.movie;
+  const {
+    Director,
+    Genre,
+    imdbRating,
+    imdbID,
+    Language,
+    Metascore,
+    Plot,
+    Poster,
+    Release,
+    Rated,
+    Runtime,
+    Title,
+    Year
+  } = props.movie;
+  /* Define custom urls */
+  const parentsGuideURL =
+    "https://www.imdb.com/title/" + imdbID + "/parentalguide";
+
+  // Dash title (i.e. Lord of the Rings: Return -> Lord-of-the-Rings-Return)
+  const dashedTitle = Title.replace(/:+/g, "").replace(/\s+/g, "-");
+  const commonSenseURL =
+    "https://www.commonsensemedia.org/movie-reviews/" + dashedTitle;
+  const justWatchURL = "https://www.justwatch.com/us/movie/" + dashedTitle;
 
   return (
     <div className="movie-card-container">
@@ -58,10 +71,7 @@ export default function MovieCard(props) {
 
           {/* calling dispatch to set the state of our watchlist data in reducer */}
           {/* Parents guide from IMDB */}
-          <Button
-            onClick={() => setModalShow(true)}
-            variant="warning"
-          >
+          <Button onClick={() => setModalShow(true)} variant="warning">
             More Info
           </Button>
           {/*           
@@ -76,20 +86,56 @@ export default function MovieCard(props) {
       </Card>
       {modalShow && <Modal />}
 
-    <Modal show={modalShow} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Modal heading</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={handleClose}>
-          Save Changes
-        </Button>
-      </Modal.Footer>
-    </Modal>
+      <Modal show={modalShow} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{Title}</Modal.Title>
+        </Modal.Header>
+        <Row>
+          <Col>Director: {Director}</Col>
+          <Col>Runtime: {Runtime}</Col>
+          <Col>Year: {Year}</Col>
+          <Col>Language: {Language}</Col>
+          <Col>Rating: {Rated}</Col>
+          <Col>Metascore: {Metascore}</Col>
+          <Col>imdbRating: {imdbRating}</Col>
+        </Row>
+        <Row>
+          <Col>Genre: {Genre}</Col>
+        </Row>
+        <Modal.Body>{Plot}</Modal.Body>
+        <Row>
+          <Col>
+            <a href={parentsGuideURL} target="_blank" rel="noreferrer noopener">
+              <Image className="imdblogo" src={imdblogo} alt="imdb_logo" />
+              <div>Parents Guide</div>
+            </a>
+          </Col>
+          <Col>
+            <a href={commonSenseURL} target="_blank" rel="noreferrer noopener">
+              <Image src={csmlogo} alt="csm_logo" />
+              <div>Common Sense Media</div>
+            </a>
+          </Col>
+          <Col>
+            <a href={justWatchURL} target="_blank" rel="noreferrer noopener">
+              <Image
+                className="imdblogo"
+                src={justwatch}
+                alt="just_watch_logo"
+              />
+              <div>Stream</div>
+            </a>
+          </Col>
+        </Row>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button onClick={() => dispatch(setApiData(props.movie))}>
+            Add to Watchlist
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

@@ -1,54 +1,33 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Col, Row, Button, Form, Modal } from "react-bootstrap";
+import { Col, Row, Button, Form } from "react-bootstrap";
 import MovieCard from "./MovieCard";
-import MovieModal from "./MovieModal";
 export default function MediaList() {
   const [apiData, setApiData] = useState([]); //initializing state to store movie data from our api call in an array
   const [inputValue, setInputValue] = useState(""); //initializing state to store user input value
-
-  // const getMovies = e => {
-  //   e.preventDefault();
-  //   axios
-  //     .get(`http://www.omdbapi.com/?s=${inputValue}&apikey=39132f6b`)
-  //     .then(res => res.data)
-  //     .then(data => {
-  //       let dataLength = data.Search.length;
-  //       let detailedMovieApi = [];
-  //       for (let i = 0; i < dataLength; i++) {
-  //         let imdbIDNumber = data.Search[i].imdbID;
-  //         axios
-  //           .get(`http://www.omdbapi.com/?i=${imdbIDNumber}&apikey=39132f6b`)
-  //           .then(res => res.data)
-  //           .then(movie => {
-  //             debugger;
-  //             detailedMovieApi.push(movie);
-  //           });
-  //       }
-  //       setApiData(detailedMovieApi);
-  //       console.log(detailedMovieApi);
-  //     });
-  // };
-
-  // function created to set the state of inputValue to the value of the input
 
   const getMovies = async e => {
     try {
       e.preventDefault();
       const response = await axios.get(
-        `http://www.omdbapi.com/?s=${inputValue}&apikey=39132f6b`
+        `https://www.omdbapi.com/?s=${inputValue}&apikey=39132f6b&type=movie`
       );
-      const moviesArray = response.data.Search.map(async movie => {
-        const detailedRes = await axios.get(
-          `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=39132f6b`
-        );
+      if (response.data.Search) {
+        const moviesArray = response.data.Search.map(async movie => {
+          const detailedRes = await axios.get(
+            `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=39132f6b&type=movie`
+          );
 
-        return Promise.resolve(detailedRes.data);
-      });
+          return Promise.resolve(detailedRes.data);
+        });
 
-      const detailedMovies = await Promise.all(moviesArray);
-      return detailedMovies;
+        const detailedMovies = await Promise.all(moviesArray);
+        return detailedMovies;
+      } else {
+        return [];
+      }
     } catch (error) {
+      console.log(error);
       return [];
     }
   };
@@ -63,13 +42,25 @@ export default function MediaList() {
   };
 
   // getting default movies
-  const getDefaultMovies = () => {
-    axios
-      .get(`http://www.omdbapi.com/?s="Toy+Story"&apikey=39132f6b`)
-      .then(res => res.data)
-      .then(data => {
-        return setApiData(data.Search);
+  const getDefaultMovies = async () => {
+    try {
+      const response = await axios.get(
+        `http://www.omdbapi.com/?s=Toy+Story&apikey=39132f6b&type=movie`
+      );
+      const moviesArray = response.data.Search.map(async movie => {
+        const detailedRes = await axios.get(
+          `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=39132f6b`
+        );
+
+        return Promise.resolve(detailedRes.data);
       });
+
+      const detailedMovies = await Promise.all(moviesArray);
+      setApiData(detailedMovies);
+      return detailedMovies;
+    } catch (error) {
+      return [];
+    }
   };
 
   useEffect(() => {
@@ -87,23 +78,27 @@ export default function MediaList() {
         <Button type="submit">Search</Button>
       </Form>
       <div className="movie-container">
-        <Row>
-          {apiData.map((movie, id) => {
-            return (
-              <Col
-                key={id}
-                xs={12}
-                sm={6}
-                md={6}
-                lg={6}
-                xl={4}
-                className="mb-6"
-              >
-                <MovieCard movie={movie} />
-              </Col>
-            );
-          })}
-        </Row>
+        {apiData.length === 0 ? (
+          <p className="error-message">Invalid Search Please Try Again</p>
+        ) : (
+          <Row>
+            {apiData.map((movie, id) => {
+              return (
+                <Col
+                  key={id}
+                  xs={12}
+                  sm={6}
+                  md={6}
+                  lg={6}
+                  xl={4}
+                  className="mb-6"
+                >
+                  <MovieCard movie={movie} />
+                </Col>
+              );
+            })}
+          </Row>
+        )}
       </div>
     </div>
   );
