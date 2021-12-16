@@ -8,7 +8,6 @@ import { useNavigate } from "react-router";
 import { toast } from 'react-toastify';
 import MWL from './Images/MWL.jpeg';
 
-
 export default function Login() {
   const [registerModalShow, setRegisterModalShow] = React.useState(false);
   const [loginModalShow, setLoginModalShow] = React.useState(false);
