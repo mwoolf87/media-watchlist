@@ -6,8 +6,8 @@ import Container from 'react-bootstrap/Container' ;
 import ScottPic from './Images/Scott_aboutUS.jpeg';
 import JuliaPic from './Images/Julia_aboutUS.jpeg';
 import MikePic from './Images/Mike_aboutUS.jpeg';
+import external from './Images/external-link.png'
 import { Col, Row } from "react-bootstrap";
-import Contact from "./Contact";
 
 function About() {
   return (
@@ -36,6 +36,9 @@ function About() {
                             <a href="https://github.com/julszymanski">
                                 <img className="about-logo" src={GitHub} alt="GithubLogo"></img>
                             </a>
+                            <a href = "#">
+                                <img className = "about-logo" src = {external} alt = "PorfolioLink" />
+                            </a>
                             </Col>
                         </Row>
                     </Container>
@@ -61,6 +64,9 @@ function About() {
                             </a>
                             <a href="https://github.com/mwoolf87">
                                 <img className="about-logo" src={GitHub} alt="GithubLogo"></img>
+                            </a>
+                            <a href = "#">
+                                <img className = "about-logo" src = {external} alt = "PorfolioLink" />
                             </a>
                             </Col>
                         </Row>
@@ -88,6 +94,9 @@ function About() {
                             <a href="https://github.com/smhenderson89/">
                                 <img className="about-logo" src={GitHub} alt="GithubLogo"></img>
                             </a>
+                            <a href = "https://scotthenderson.netlify.app/">
+                                <img className = "about-logo" src = {external} alt = "PorfolioLink" />
+                            </a>
                             </Col>
                         </Row>
                     </Container>
@@ -95,8 +104,6 @@ function About() {
             </Row>
             
         </Container>
-
-        <Contact />
     </>
   );
 }
