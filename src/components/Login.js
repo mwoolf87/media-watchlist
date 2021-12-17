@@ -212,8 +212,7 @@ export default function Login() {
           e.preventDefault();
           window.location.href='https://new-mwl-backend.herokuapp.com/auth/github';
           }} block size="lg" type="submit">
-          Github Login 
-          </Button>
+          Github Login
     </>
   );
 }
