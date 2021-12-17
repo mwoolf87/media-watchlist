@@ -11,6 +11,11 @@ import MWL from './Images/MWL.jpeg';
 export default function Login() {
   const [registerModalShow, setRegisterModalShow] = React.useState(false);
   const [loginModalShow, setLoginModalShow] = React.useState(false);
+  let firstName= "";
+  let lastName= "";
+  let email = "";
+  let password = "";
+
   function handleSubmit(event) {
     event.preventDefault();
   }
@@ -94,7 +99,7 @@ export default function Login() {
             autoFocus
             type="email"
             // value={newEmail}
-            onChange={(e) => email=(e.target.value)}
+            onChange={(e) => email =(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
@@ -143,7 +148,7 @@ export default function Login() {
           <Form.Control
             autoFocus
             type="text"
-            onChange={(e) => firstName=(e.target.value)}
+            onChange={(e) => firstName =(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="email">
@@ -151,7 +156,7 @@ export default function Login() {
           <Form.Control
             autoFocus
             type="text"
-            onChange={(e) => lastName=(e.target.value)}
+            onChange={(e) => lastName =(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="email">
@@ -159,15 +164,15 @@ export default function Login() {
           <Form.Control
             autoFocus
             type="email"
-            onChange={(e) => email=(e.target.value)}
+            onChange={(e) => email =(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
-            // value={newPassword}
-            onChange={(e) => password=(e.target.value)}
+            value={password}
+            onChange={(e) => password =(e.target.value)}
           />
         </Form.Group>
         <Button block size="lg" type="submit" onClick={(e) => {
