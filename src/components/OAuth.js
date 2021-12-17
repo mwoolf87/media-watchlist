@@ -10,7 +10,7 @@ export default function OAuth() {
     <>
       <Button onClick={(e) => {
       e.preventDefault();
-      window.location.href='https://media-watch-list.herokuapp.com/auth/github';
+      window.location.href='https://new-mwl-backend.herokuapp.com/auth/github';
       }} block size="lg" type="submit">
         Github Login 
       </Button>
