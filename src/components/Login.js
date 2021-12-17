@@ -113,7 +113,7 @@ export default function Login() {
         <Button block size="lg" type="submit" onClick={(e) => {
           e.preventDefault();
           window.location.href='https://new-mwl-backend.herokuapp.com/login/verify';
-          }} block size="lg" type="submit">
+          }}>
           Login
         </Button>
       </Form>
