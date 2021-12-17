@@ -21,60 +21,60 @@ export default function Login() {
   }
 
   // Check Login Function
-function checkLogin() {
-  fetch('https://new-mwl-backend.herokuapp.com/login2', {
-      method: "POST",
-      credentials: "include",
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(
-          {email: newEmail,
-          password: newPassword})
-  }).then (res => res.json())
-  .then (data => {
-      console.log(data);
-      if (data) {
-        toast.success('🦄 Login Successful!');
-        navigate('/');
-      } else {
-        toast.error('Login Unsuccessful');
-      }
-      // showAlert(data)
-  })
-  .catch(function (err) {
-      console.log('something went wrong, call on database', err); // console.log the errors if any
-  });
-}
+// function checkLogin() {
+//   fetch('https://new-mwl-backend.herokuapp.com/login2', {
+//       method: "POST",
+//       credentials: "include",
+//       headers: {
+//           'Accept': 'application/json',
+//           'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(
+//           {email: newEmail,
+//           password: newPassword})
+//   }).then (res => res.json())
+//   .then (data => {
+//       console.log(data);
+//       if (data) {
+//         toast.success('🦄 Login Successful!');
+//         navigate('/');
+//       } else {
+//         toast.error('Login Unsuccessful');
+//       }
+//       // showAlert(data)
+//   })
+//   .catch(function (err) {
+//       console.log('something went wrong, call on database', err); // console.log the errors if any
+//   });
+// }
 
-function checkRegistration() {
-  fetch('https://new-mwl-backend.herokuapp.com/login/register', {
-      method: "POST",
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(
-          {firstName: newFirstName,
-            lastName: newLastName,
-            email: newEmail,
-            password: newPassword})
-  }).then (res => res.json())
-  .then (data => {
-      console.log(data);
-      if (data.registration) {
-        toast.success('🦄 Registration Successful!');
-        navigate('/');
-      } else {
-        toast.error('Already Registered!');
-      }
-      // showAlert(data)
-  })
-  .catch(function (err) {
-      console.log('something went wrong, call on database', err); // console.log the errors if any
-  });
-}
+// function checkRegistration() {
+//   fetch('https://new-mwl-backend.herokuapp.com/login/register', {
+//       method: "POST",
+//       headers: {
+//           'Accept': 'application/json',
+//           'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(
+//           {firstName: newFirstName,
+//             lastName: newLastName,
+//             email: newEmail,
+//             password: newPassword})
+//   }).then (res => res.json())
+//   .then (data => {
+//       console.log(data);
+//       if (data.registration) {
+//         toast.success('🦄 Registration Successful!');
+//         navigate('/');
+//       } else {
+//         toast.error('Already Registered!');
+//       }
+//       // showAlert(data)
+//   })
+//   .catch(function (err) {
+//       console.log('something went wrong, call on database', err); // console.log the errors if any
+//   });
+// }
 
   function LoginModal(props) {
     return (
@@ -110,7 +110,10 @@ function checkRegistration() {
             onChange={(e) => newPassword=(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" onClick={checkLogin}>
+        <Button block size="lg" type="submit" onClick={(e) => {
+          e.preventDefault();
+          window.location.href='https://new-mwl-backend.herokuapp.com/login/verify';
+          }} block size="lg" type="submit">
           Login
         </Button>
       </Form>
@@ -172,7 +175,10 @@ function checkRegistration() {
             onChange={(e) => newPassword=(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" onClick={checkRegistration}>
+        <Button block size="lg" type="submit" onClick={(e) => {
+          e.preventDefault();
+          window.location.href='https://new-mwl-backend.herokuapp.com/login/register';
+          }}>
           Sign Up
         </Button>
       </Form>
@@ -207,6 +213,12 @@ function checkRegistration() {
           onHide={() => setRegisterModalShow(false)}
         />
 
-      </>
-    );
+        <Button onClick={(e) => {
+          e.preventDefault();
+          window.location.href='https://new-mwl-backend.herokuapp.com/auth/github';
+          }} block size="lg" type="submit">
+          Github Login 
+          </Button>
+    </>
+  );
 }
