@@ -45,11 +45,11 @@ export default function MediaList() {
   const getDefaultMovies = async () => {
     try {
       const response = await axios.get(
-        `http://www.omdbapi.com/?s=Toy+Story&apikey=39132f6b&type=movie`
+        `https://www.omdbapi.com/?s=Toy+Story&apikey=39132f6b&type=movie`
       );
       const moviesArray = response.data.Search.map(async movie => {
         const detailedRes = await axios.get(
-          `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=39132f6b`
+          `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=39132f6b`
         );
 
         return Promise.resolve(detailedRes.data);

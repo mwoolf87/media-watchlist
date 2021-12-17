@@ -22,8 +22,9 @@ export default function Login() {
 
   // Check Login Function
 function checkLogin() {
-  fetch('https://new-mwl-backend.herokuapp.com/login/verify', {
+  fetch('https://new-mwl-backend.herokuapp.com/login2', {
       method: "POST",
+      credentials: "include",
       headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -33,8 +34,8 @@ function checkLogin() {
           password: newPassword})
   }).then (res => res.json())
   .then (data => {
-      console.log(data.login);
-      if (data.login) {
+      console.log(data);
+      if (data) {
         toast.success('🦄 Login Successful!');
         navigate('/');
       } else {
