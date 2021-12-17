@@ -15,7 +15,7 @@ import imdblogo from "./Images/imdb.png";
 import csmlogo from "./Images/csm.png";
 import justwatch from "./Images/justwatch-square.png";
 import "../CSS/MovieCard.css";
-
+import axios from "axios";
 export default function MovieCard(props) {
   // Function to trigger modal to show
 
@@ -23,12 +23,27 @@ export default function MovieCard(props) {
 
   const [modalShow, setModalShow] = useState(false);
 
+  const getMovie = imdbId => {
+    axios
+      .get(`http://www.omdbapi.com/?i=${imdbId}&apikey=39132f6b`)
+      .then(res => {
+        console.log(res.data);
+        axios.post("https://new-mwl-backend.herokuapp.com/flicks", res.data);
+      });
+  };
+
+  // let { Actors } = entireObject;
+  // console.log(Actors);
   const handleClose = () => setModalShow(false);
   const handleShow = () => setModalShow(true);
 
   // defining dispatch to use on line 22
   const dispatch = useDispatch();
   //deconstructing props here
+
+  // const handleClick = () => {
+  //   updateEntireObject();
+  // };
 
   const CAT_404 = "https://http.cat/404";
 
@@ -53,8 +68,10 @@ export default function MovieCard(props) {
 
   // Dash title (i.e. Lord of the Rings: Return -> Lord-of-the-Rings-Return)
   const dashedTitle = Title.replace(/:+/g, "").replace(/\s+/g, "-");
+
   const commonSenseURL =
     "https://www.commonsensemedia.org/movie-reviews/" + dashedTitle;
+
   const justWatchURL = "https://www.justwatch.com/us/movie/" + dashedTitle;
 
   return (
@@ -79,9 +96,7 @@ export default function MovieCard(props) {
             Launch demo modal
           </Button>*/}
 
-          <Button onClick={() => dispatch(setApiData(props.movie))}>
-            Add to Watchlist
-          </Button>
+          <Button onClick={() => getMovie(imdbID)}>Add to Watchlist</Button>
         </Card.Body>
       </Card>
       {modalShow && <Modal />}

@@ -2,7 +2,6 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import MovieCard from "./MovieCard";
-import axios from "axios";
 
 export default function Watchlist() {
   // grabbing state from redux and assigning it to a variable
@@ -13,7 +12,7 @@ export default function Watchlist() {
       <h1>Watchlist</h1>
       <div className="movie-container">
         <Row>
-          {/* mapping through movieData that is coming from the reducer */}
+          {/* mapping through apiData that is coming from the reducer */}
           {watchlistData &&
             watchlistData.map((movie, index) => {
               return (
