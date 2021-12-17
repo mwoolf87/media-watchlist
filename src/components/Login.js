@@ -8,73 +8,73 @@ import { useNavigate } from "react-router";
 import { toast } from 'react-toastify';
 import MWL from './Images/MWL.jpeg';
 
+
 export default function Login() {
   const [registerModalShow, setRegisterModalShow] = React.useState(false);
   const [loginModalShow, setLoginModalShow] = React.useState(false);
-  let firstName = "";
-  let lastName = "";
-  let email = "";
-  let password = "";
-
+  let newFirstName = "";
+  let newLastName = "";
+  let newEmail = "";
+  let newPassword = "";
+  const navigate = useNavigate();
   function handleSubmit(event) {
     event.preventDefault();
   }
 
-//   // Check Login Function
-// function checkLogin() {
-//   fetch('https://new-mwl-backend.herokuapp.com/login2', {
-//       method: "POST",
-//       credentials: "include",
-//       headers: {
-//           'Accept': 'application/json',
-//           'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(
-//           {email: newEmail,
-//           password: newPassword})
-//   }).then (res => res.json())
-//   .then (data => {
-//       console.log(data);
-//       if (data) {
-//         toast.success('🦄 Login Successful!');
-//         navigate('/');
-//       } else {
-//         toast.error('Login Unsuccessful');
-//       }
-//       // showAlert(data)
-//   })
-//   .catch(function (err) {
-//       console.log('something went wrong, call on database', err); // console.log the errors if any
-//   });
-// }
+  // Check Login Function
+function checkLogin() {
+  fetch('https://new-mwl-backend.herokuapp.com/login/verify', {
+      method: "POST",
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+          {email: newEmail,
+          password: newPassword})
+  }).then (res => res.json())
+  .then (data => {
+      console.log(data.login);
+      if (data.login) {
+        toast.success('🦄 Login Successful!');
+        navigate('/');
+      } else {
+        toast.error('Login Unsuccessful');
+      }
+      // showAlert(data)
+  })
+  .catch(function (err) {
+      console.log('something went wrong, call on database', err); // console.log the errors if any
+  });
+}
 
-// function checkRegistration() {
-//   fetch('https://new-mwl-backend.herokuapp.com/login/register', {
-//       method: "POST",
-//       headers: {
-//           'Accept': 'application/json',
-//           'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(
-//           {firstName: newFirstName,
-//             lastName: newLastName,
-//             email: newEmail,
-//             password: newPassword})
-//   }).then (res => res.json())
-//   .then (data => {
-//       console.log(data);
-//       if (data.registration) {
-//         toast.success('🦄 Registration Successful!');
-//         navigate('/');
-//       } else {
-//         toast.error('Already Registered!');
-//       }
-//       // showAlert(data)
-//   })
-//   .catch(function (err) {
-//       console.log('something went wrong, call on database', err); // console.log the errors if any
-//   });
-// }
+function checkRegistration() {
+  fetch('https://new-mwl-backend.herokuapp.com/login/register', {
+      method: "POST",
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+          {firstName: newFirstName,
+            lastName: newLastName,
+            email: newEmail,
+            password: newPassword})
+  }).then (res => res.json())
+  .then (data => {
+      console.log(data.registration);
+      if (data.registration) {
+        toast.success('🦄 Registration Successful!');
+        navigate('/');
+      } else {
+        toast.error('Already Registered!');
+      }
+      // showAlert(data)
+  })
+  .catch(function (err) {
+      console.log('something went wrong, call on database', err); // console.log the errors if any
+  });
+}
 
   function LoginModal(props) {
     return (
@@ -99,7 +99,7 @@ export default function Login() {
             autoFocus
             type="email"
             // value={newEmail}
-            onChange={(e) => email=(e.target.value)}
+            onChange={(e) => newEmail=(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
@@ -107,13 +107,10 @@ export default function Login() {
           <Form.Control
             type="password"
             // value={newPassword}
-            onChange={(e) => password=(e.target.value)}
+            onChange={(e) => newPassword=(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" onClick={(e) => {
-          e.preventDefault();
-          window.location.href='https://new-mwl-backend.herokuapp.com/login/verify';
-          }}>
+        <Button block size="lg" type="submit" onClick={checkLogin}>
           Login
         </Button>
       </Form>
@@ -148,7 +145,7 @@ export default function Login() {
           <Form.Control
             autoFocus
             type="text"
-            onChange={(e) => firstName =(e.target.value)}
+            onChange={(e) => newFirstName=(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="email">
@@ -156,7 +153,7 @@ export default function Login() {
           <Form.Control
             autoFocus
             type="text"
-            onChange={(e) => lastName =(e.target.value)}
+            onChange={(e) => newLastName=(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="email">
@@ -164,21 +161,18 @@ export default function Login() {
           <Form.Control
             autoFocus
             type="email"
-            onChange={(e) => email =(e.target.value)}
+            onChange={(e) => newEmail=(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
-            value={password}
-            onChange={(e) => password =(e.target.value)}
+            // value={newPassword}
+            onChange={(e) => newPassword=(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" onClick={(e) => {
-          e.preventDefault();
-          window.location.href='https://new-mwl-backend.herokuapp.com/login/register';
-          }}>
+        <Button block size="lg" type="submit" onClick={checkRegistration}>
           Sign Up
         </Button>
       </Form>
@@ -214,10 +208,12 @@ export default function Login() {
         />
 
         <Button onClick={(e) => {
-          e.preventDefault();
-          window.location.href='https://new-mwl-backend.herokuapp.com/auth/github';
-          }} block size="lg" type="submit">
-          Github Login </Button>
-    </>
-  );
+              e.preventDefault();
+              window.location.href='https://new-mwl-backend.herokuapp.com/auth/github';
+              }} block size="lg" type="submit">
+                Github Login 
+              </Button>
+
+      </>
+    );
 }
