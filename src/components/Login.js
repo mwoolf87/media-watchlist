@@ -11,8 +11,8 @@ import MWL from './Images/MWL.jpeg';
 export default function Login() {
   const [registerModalShow, setRegisterModalShow] = React.useState(false);
   const [loginModalShow, setLoginModalShow] = React.useState(false);
-  let firstName= "";
-  let lastName= "";
+  let firstName = "";
+  let lastName = "";
   let email = "";
   let password = "";
 
@@ -99,7 +99,7 @@ export default function Login() {
             autoFocus
             type="email"
             // value={newEmail}
-            onChange={(e) => email =(e.target.value)}
+            onChange={(e) => email=(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
