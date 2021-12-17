@@ -11,16 +11,11 @@ import MWL from './Images/MWL.jpeg';
 export default function Login() {
   const [registerModalShow, setRegisterModalShow] = React.useState(false);
   const [loginModalShow, setLoginModalShow] = React.useState(false);
-  let newFirstName = "";
-  let newLastName = "";
-  let newEmail = "";
-  let newPassword = "";
-  const navigate = useNavigate();
   function handleSubmit(event) {
     event.preventDefault();
   }
 
-  // Check Login Function
+//   // Check Login Function
 // function checkLogin() {
 //   fetch('https://new-mwl-backend.herokuapp.com/login2', {
 //       method: "POST",
@@ -99,7 +94,7 @@ export default function Login() {
             autoFocus
             type="email"
             // value={newEmail}
-            onChange={(e) => newEmail=(e.target.value)}
+            onChange={(e) => email=(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
@@ -107,7 +102,7 @@ export default function Login() {
           <Form.Control
             type="password"
             // value={newPassword}
-            onChange={(e) => newPassword=(e.target.value)}
+            onChange={(e) => password=(e.target.value)}
           />
         </Form.Group>
         <Button block size="lg" type="submit" onClick={(e) => {
@@ -148,7 +143,7 @@ export default function Login() {
           <Form.Control
             autoFocus
             type="text"
-            onChange={(e) => newFirstName=(e.target.value)}
+            onChange={(e) => firstName=(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="email">
@@ -156,7 +151,7 @@ export default function Login() {
           <Form.Control
             autoFocus
             type="text"
-            onChange={(e) => newLastName=(e.target.value)}
+            onChange={(e) => lastName=(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="email">
@@ -164,7 +159,7 @@ export default function Login() {
           <Form.Control
             autoFocus
             type="email"
-            onChange={(e) => newEmail=(e.target.value)}
+            onChange={(e) => email=(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
@@ -172,7 +167,7 @@ export default function Login() {
           <Form.Control
             type="password"
             // value={newPassword}
-            onChange={(e) => newPassword=(e.target.value)}
+            onChange={(e) => password=(e.target.value)}
           />
         </Form.Group>
         <Button block size="lg" type="submit" onClick={(e) => {
@@ -217,8 +212,7 @@ export default function Login() {
           e.preventDefault();
           window.location.href='https://new-mwl-backend.herokuapp.com/auth/github';
           }} block size="lg" type="submit">
-          Github Login 
-          </Button>
+          Github Login
     </>
   );
 }
