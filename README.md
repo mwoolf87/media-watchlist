@@ -1,22 +1,13 @@
 <div id="top"></div>
 
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
-
-https://media-watch-list.herokuapp.com/
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
+
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    ![mwl_logo](https://user-images.githubusercontent.com/53064568/146558512-3aa4dd4d-c9ba-4ab6-bf7a-623cfd58fddc.jpeg)
+
+   
   </a>
 
   <h3 align="center">Media Watch List - </h3>
