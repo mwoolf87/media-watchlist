@@ -96,9 +96,9 @@ export default function MovieCard(props) {
             Launch demo modal
           </Button>*/}
 
-          <Button font-size="30px" className="button-19 m-2" onClick={() => dispatch(setApiData(props.movie))}><Image className="thumbsup" src={thumbsup}></Image>
+          <Button font-size="30px" className="button-19 m-2" onClick={() => dispatch(setApiData(props.movie))}><Image className="thumbsup" src={thumbsup}></Image></Button>
 
-          // <Button onClick={() => getMovie(imdbID)}>Add to Watchlist</Button>
+          {/* <Button onClick={() => getMovie(imdbID)}>Add to Watchlist</Button> */}
         </Card.Body>
       </Card>
       {modalShow && <Modal />}
