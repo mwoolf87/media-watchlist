@@ -12,7 +12,7 @@ export default function Watchlist() {
       <h1>Watchlist</h1>
       <div className="movie-container">
         <Row>
-          {/* mapping through movieData that is coming from the reducer */}
+          {/* mapping through apiData that is coming from the reducer */}
           {watchlistData &&
             watchlistData.map((movie, index) => {
               return (

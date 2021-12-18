@@ -70,7 +70,7 @@ export default function MediaList() {
 
   return (
     <div>
-      <h1>Media-Watchlist</h1>
+      <h1>Media Watch List</h1>
 
       <Form onSubmit={handleSubmit}>
         {/* text input that has an event handler of onChange that runs the handleChange function defined on line 18 */}

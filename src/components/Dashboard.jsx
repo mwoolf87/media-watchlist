@@ -31,6 +31,9 @@ function Dashboard() {
             <button>Delete Account</button>
             {/* Delete account, delete user and then switch user to registration page
             show toast notifcation that account has been delete */}
+            <button>Logout</button>
+            {/* Logout from account */}
+            
         </div>
     )
 }
