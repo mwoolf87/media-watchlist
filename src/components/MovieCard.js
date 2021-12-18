@@ -15,6 +15,7 @@ import csmlogo from "./Images/csm.png";
 import justwatch from "./Images/justwatch-square.png";
 import "../CSS/MovieCard.css";
 import thumbsup from './Images/thumbsup.jpg';
+import axios from "axios";
 
 export default function MovieCard(props) {
   // Function to trigger modal to show
