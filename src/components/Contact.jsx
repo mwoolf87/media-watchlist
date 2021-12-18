@@ -59,6 +59,7 @@ const Contact = () => {
       <div className='container'>
         <div className='row'>
           <div className='col-12 text-center'>
+          <h1>About the Team</h1>
             <div className='contactForm'>
               <form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
                 {/* Row 1 of form */}

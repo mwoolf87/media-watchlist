@@ -6,6 +6,11 @@
   --SiteSageGreen: #98D6D3;
 }
 
+.Modal {
+  display: flex;
+  justify-content: center;
+}
+
 @media all and (min-width: 480px) {
     .Modal
     .Login {
@@ -21,6 +26,7 @@
     .Login button {
       background-color: var(--SiteGreen);
       margin-top: 60px;
+      size: lg;
     }
   }
 
@@ -53,7 +59,7 @@
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  width: 7%;
+  width: auto;
 }
 
 .button-19:after {
