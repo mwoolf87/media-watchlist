@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/oauth" element={<OAuth />} />
           <Route exact path="/login" element={<Login />} />
           {/* rendering MovieList component within app.js to keep code clean */}
-
+          <Route path="/medialist" element={<MediaList />} />
           <Route exact path="/" element={<Login />} />
           <Route path="/watchlist" element={<Watchlist />} />
           <Route path="/favorites" element={<FavoritesCard />} />
