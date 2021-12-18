@@ -65,7 +65,7 @@ function checkRegistration() {
       console.log(data.registration);
       if (data.registration) {
         toast.success('🦄 Registration Successful!');
-        navigate('/');
+        navigate('/medialist');
       } else {
         toast.error('Already Registered!');
       }
