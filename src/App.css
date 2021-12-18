@@ -2,6 +2,7 @@
   text-align: center;
   background-color: white;
   min-height: 100vh;
+  overscroll-behavior: none;
 }
 
 .row{
@@ -21,13 +22,6 @@
 
 .movie-container{
   margin-top: 50px;
-}
-
-.nav-links{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
 }
 
 /* Images CSS */

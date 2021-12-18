@@ -34,7 +34,7 @@ function About() {
                                 <img className="about-logo" src={LinkedIn} alt="LinkedIN Logo"></img>
                             </a>
                             <a href="https://github.com/julszymanski">
-                                <img className="about-logo" src={GitHub} alt="GithubLogo"></img>
+                                <img className="about-logo m-2" src={GitHub} alt="GithubLogo"></img>
                             </a>
                             <a href = "https://js-my-portfolio-react.herokuapp.com/">
                                 <img className = "about-logo" src = {external} alt = "PorfolioLink" />
@@ -63,7 +63,7 @@ function About() {
                                 <img className="about-logo" src={LinkedIn} alt="LinkedIN Logo"></img>
                             </a>
                             <a href="https://github.com/mwoolf87">
-                                <img className="about-logo" src={GitHub} alt="GithubLogo"></img>
+                                <img className="about-logo m-2" src={GitHub} alt="GithubLogo"></img>
                             </a>
                             <a href = "https://mwoolfdev.netlify.app/">
                                 <img className = "about-logo" src = {external} alt = "PorfolioLink" />
@@ -92,7 +92,7 @@ function About() {
                                 <img className="about-logo" src={LinkedIn} alt="LinkedIN Logo"></img>
                             </a>
                             <a href="https://github.com/smhenderson89/">
-                                <img className="about-logo" src={GitHub} alt="GithubLogo"></img>
+                                <img className="about-logo m-2" src={GitHub} alt="GithubLogo"></img>
                             </a>
                             <a href = "https://scotthenderson.netlify.app/">
                                 <img className = "about-logo" src = {external} alt = "PorfolioLink" />
