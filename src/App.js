@@ -8,11 +8,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import About from "./components/About";
 import OAuth from "./components/OAuth";
-import Test from "./components/Test";
 import MediaList from "./components/MediaList";
 import ToastNotification from "./components/ToastNotification";
 import FavoritesCard from "./components/FavoritesCard";
 import Dashboard from "./components/Dashboard";
+import Logout from "./components/Logout";
 
 function App() {
   return (
@@ -31,7 +31,8 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
 
           <Route path="/about" element={<About />} />
-          <Route path="/test" element={<Test />} />
+          <Route path="/logout" element={<Logout />} />
+
         </Routes>
       </Router>
     </div>

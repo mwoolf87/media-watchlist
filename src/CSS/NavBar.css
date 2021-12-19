@@ -5,67 +5,36 @@
     --SiteWhite: #FFFFFF;
     --SiteSageGreen: #98D6D3;
   }
-  
-  @media all and (min-width: 480px) {
-      .Modal
-      .Login {
-        padding: 60px 0;
-        color: var(--SiteBlue);
-      }
-    
-      .Login form {
-        margin: 0 auto;
-        max-width: 320px;
-      }
-  
-      .Login button {
-        background-color: var(--SiteGreen);
-        margin-top: 60px;
-      }
-    }
-  
 
-  html,body{margin:0}
+.color-nav {
+  background-color: var(--SiteBlue);
+}
   
-  .navbar {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    border-bottom: 1px solid white;
-    padding-top: 0;
+.navbar {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  background-color: var(--SiteBlue);
     
-  }  
-  .nav-links {
-    display: inline;
-    padding-right: 30px;
-  }
-  
-  .button-19:after {
-    background-clip: padding-box;
-    background-color: var(--SiteSageGreen);
-    border: solid transparent;
-    border-radius: 16px;
-    border-width: 0 0 4px;
-    bottom: -4px;
-    content: "";
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: -1;
-  }
-  
-  .button-19:main,
-  .button-19:focus {
-    user-select: auto;
-  }
-  
-  .button-19:hover:not(:disabled) {
-    filter: brightness(1.1);
-  }
-  
-  .button-19:disabled {
-    cursor: auto;
-  }
-  
+}  
+.nav-links {
+  display: inline;
+  padding-right: 30px;
+  background-color: var(--SiteBlue);
+}
+
+.m-3 {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+div.navbar.container {
+  background-color: var(--SiteBlue);
+  padding: 0;
+}
+
+a.m-3 {
+  color: var(--SiteWhite);
+}
   

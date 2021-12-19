@@ -12,6 +12,9 @@ export default function Navigation() {
                     <Link className="m-3" to="/watchlist">Watchlist</Link>
                     <Link className="m-3" to="/about">About </Link>
                     <Link className="m-3" to="/dashboard">Dashboard</Link>
+
+                    <Link className="m-3" to="/logout">Logout</Link>
+
             </Navbar>
         </Container>
 

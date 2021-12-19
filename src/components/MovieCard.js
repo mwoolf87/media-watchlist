@@ -3,19 +3,20 @@ import {
   Card,
   Button,
   Modal,
-  Container,
   Row,
   Col,
   Image
 } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { setApiData } from "../redux/actions/movieData-actions";
-import { setModalData } from "../redux/actions/detailedMovieData-actions";
+// import { setModalData } from "../redux/actions/detailedMovieData-actions";
 import imdblogo from "./Images/imdb.png";
 import csmlogo from "./Images/csm.png";
 import justwatch from "./Images/justwatch-square.png";
 import "../CSS/MovieCard.css";
+import thumbsup from './Images/thumbsup.jpg';
 import axios from "axios";
+
 export default function MovieCard(props) {
   // Function to trigger modal to show
 
@@ -35,7 +36,7 @@ export default function MovieCard(props) {
   // let { Actors } = entireObject;
   // console.log(Actors);
   const handleClose = () => setModalShow(false);
-  const handleShow = () => setModalShow(true);
+  // const handleShow = () => setModalShow(true);
 
   // defining dispatch to use on line 22
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ export default function MovieCard(props) {
     Metascore,
     Plot,
     Poster,
-    Release,
+    Released,
     Rated,
     Runtime,
     Title,
@@ -88,7 +89,7 @@ export default function MovieCard(props) {
 
           {/* calling dispatch to set the state of our watchlist data in reducer */}
           {/* Parents guide from IMDB */}
-          <Button onClick={() => setModalShow(true)} variant="warning">
+          <Button className="button-19 m-2" onClick={() => setModalShow(true)} variant="warning">
             More Info
           </Button>
           {/*           
@@ -96,7 +97,9 @@ export default function MovieCard(props) {
             Launch demo modal
           </Button>*/}
 
-          <Button onClick={() => getMovie(imdbID)}>Add to Watchlist</Button>
+          <Button font-size="30px" className="button-19 m-2" onClick={() => dispatch(setApiData(props.movie))}><Image className="thumbsup" src={thumbsup}></Image></Button>
+
+          {/* <Button onClick={() => getMovie(imdbID)}>Add to Watchlist</Button> */}
         </Card.Body>
       </Card>
       {modalShow && <Modal />}
@@ -143,10 +146,10 @@ export default function MovieCard(props) {
           </Col>
         </Row>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button className="button-19 m-2" variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button onClick={() => dispatch(setApiData(props.movie))}>
+          <Button className="button-19 m-2" onClick={() => dispatch(setApiData(props.movie))}>
             Add to Watchlist
           </Button>
         </Modal.Footer>
