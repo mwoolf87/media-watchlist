@@ -6,7 +6,6 @@ import Container from 'react-bootstrap/Container' ;
 import ScottPic from './Images/Scott_aboutUS.jpeg';
 import JuliaPic from './Images/Julia_aboutUS.jpeg';
 import MikePic from './Images/Mike_aboutUS.jpeg';
-import external from './Images/external-link.png';
 import pofolio_logo from './Images/portfolio.png';
 import { Col, Row } from "react-bootstrap";
 
