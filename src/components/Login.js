@@ -36,6 +36,7 @@ function checkLogin() {
   .then (data => {
       console.log(data.login);
       if (data.login) {
+        sessionStorage.setItem("userInfo",JSON.stringify(session))
         toast.success('🦄 Login Successful!');
         navigate('/medialist');
       } else {
@@ -64,6 +65,7 @@ function checkRegistration() {
   .then (data => {
       console.log(data.registration);
       if (data.registration) {
+
         toast.success('🦄 Registration Successful!');
         navigate('/medialist');
       } else {

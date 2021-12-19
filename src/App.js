@@ -10,7 +10,7 @@ import About from "./components/About";
 import OAuth from "./components/OAuth";
 import MediaList from "./components/MediaList";
 import ToastNotification from "./components/ToastNotification";
-import FavoritesCard from "./components/FavoritesCard";
+import WatchListCard from "./components/WatchListCard";
 import Dashboard from "./components/Dashboard";
 import Logout from "./components/Logout";
 
@@ -20,6 +20,7 @@ function App() {
       <Router>
         <Navigation />
         <ToastNotification />
+<<<<<<< HEAD
           <Routes>
             <Route exact path="/oauth" element={<OAuth />} />
             <Route exact path="/login" element={<Login />} />
@@ -29,6 +30,17 @@ function App() {
             <Route path="/watchlist" element={<Watchlist />} />
             <Route path="/favorites" element={<FavoritesCard />} />
             <Route path="/dashboard" element={<Dashboard />} />
+=======
+        <Routes>
+          <Route exact path="/oauth" element={<OAuth />} />
+          <Route exact path="/login" element={<Login />} />
+          {/* rendering MovieList component within app.js to keep code clean */}
+          <Route path="/medialist" element={<MediaList />} />
+          <Route exact path="/" element={<Login />} />
+          <Route path="/watchlist" element={<Watchlist />} />
+          <Route path="/favorites" element={<WatchListCard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+>>>>>>> main
 
             <Route path="/about" element={<About />} />
             <Route path="/logout" element={<Logout />} />

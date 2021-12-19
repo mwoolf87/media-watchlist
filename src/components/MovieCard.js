@@ -28,8 +28,7 @@ export default function MovieCard(props) {
     axios
       .get(`http://www.omdbapi.com/?i=${imdbId}&apikey=39132f6b`)
       .then(res => {
-        console.log(res.data);
-        axios.post("https://new-mwl-backend.herokuapp.com/flicks", res.data);
+        axios.post("https://new-mwl-backend.herokuapp.com/watchlist", res.data);
       });
   };
 
@@ -149,9 +148,7 @@ export default function MovieCard(props) {
           <Button className="button-19 m-2" variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button className="button-19 m-2" onClick={() => dispatch(setApiData(props.movie))}>
-            Add to Watchlist
-          </Button>
+          <Button onClick={() => getMovie(imdbID)}>Add to Watchlist</Button>
         </Modal.Footer>
       </Modal>
     </div>
