@@ -8,6 +8,7 @@ import { useNavigate } from "react-router";
 import { toast } from 'react-toastify';
 import MWL from './Images/MWL.jpeg';
 
+
 export default function Login() {
   const [registerModalShow, setRegisterModalShow] = React.useState(false);
   const [loginModalShow, setLoginModalShow] = React.useState(false);
@@ -22,9 +23,8 @@ export default function Login() {
 
   // Check Login Function
 function checkLogin() {
-  fetch('https://new-mwl-backend.herokuapp.com/login2', {
+  fetch('https://new-mwl-backend.herokuapp.com/login/verify', {
       method: "POST",
-      credentials: "include",
       headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -34,10 +34,10 @@ function checkLogin() {
           password: newPassword})
   }).then (res => res.json())
   .then (data => {
-      console.log(data);
-      if (data) {
+      console.log(data.login);
+      if (data.login) {
         toast.success('🦄 Login Successful!');
-        navigate('/');
+        navigate('/medialist');
       } else {
         toast.error('Login Unsuccessful');
       }
@@ -62,10 +62,10 @@ function checkRegistration() {
             password: newPassword})
   }).then (res => res.json())
   .then (data => {
-      console.log(data);
+      console.log(data.registration);
       if (data.registration) {
         toast.success('🦄 Registration Successful!');
-        navigate('/');
+        navigate('/medialist');
       } else {
         toast.error('Already Registered!');
       }
@@ -80,17 +80,16 @@ function checkRegistration() {
     return (
       <Modal
         {...props}
-        size="lg"
+        size="md"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Login Modal
+            Login
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Login to access cards</h4>
           <div className="Login">
       <Form onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="email">
@@ -110,14 +109,26 @@ function checkRegistration() {
             onChange={(e) => newPassword=(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" onClick={checkLogin}>
+        <Button className="button-19 m-2" block size="md" type="submit" onClick={checkLogin}>
           Login
         </Button>
+        <Button className="button-19 m-2" onClick={(e) => {
+              e.preventDefault();
+              window.location.href='https://new-mwl-backend.herokuapp.com/auth/github';
+              }} block size="lg" type="submit">
+                Github Login 
+              </Button>
+        {/* <Button className="button-19 m-2" onClick={(e) => {
+              e.preventDefault();
+              window.location.href='https://new-mwl-backend.herokuapp.com/auth/google';
+              }} block size="lg" type="submit">
+                Google Login 
+              </Button> */}
       </Form>
     </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button className="button-19 m-2" onClick={props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>
     );
@@ -127,17 +138,16 @@ function checkRegistration() {
     return (
       <Modal
         {...props}
-        size="lg"
+        size="md"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Sign up Modal
+            Sign up
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Sign up to access cards</h4>
           <div className="Login">
       <Form onSubmit={handleSubmit}>
       <Form.Group size="lg" controlId="email">
@@ -172,14 +182,26 @@ function checkRegistration() {
             onChange={(e) => newPassword=(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" onClick={checkRegistration}>
+        <Button className="button-19 m-2" block size="lg" type="submit" onClick={checkRegistration}>
           Sign Up
         </Button>
+        <Button className="button-19 m-2" onClick={(e) => {
+              e.preventDefault();
+              window.location.href='https://new-mwl-backend.herokuapp.com/auth/github';
+              }} block size="lg" type="submit">
+                Github Signup 
+              </Button>
+        {/* <Button className="button-19 m-2" onClick={(e) => {
+              e.preventDefault();
+              window.location.href='https://new-mwl-backend.herokuapp.com/auth/google';
+              }} block size="lg" type="submit">
+                Google Signup 
+              </Button> */}
       </Form>
     </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button className="button-19 m-2" onClick={props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>
     );
@@ -206,6 +228,7 @@ function checkRegistration() {
           show={registerModalShow}
           onHide={() => setRegisterModalShow(false)}
         />
+        <br></br>
 
       </>
     );

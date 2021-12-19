@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Row, Button, Form } from "react-bootstrap";
 import MovieCard from "./MovieCard";
+
 export default function MediaList() {
   const [apiData, setApiData] = useState([]); //initializing state to store movie data from our api call in an array
   const [inputValue, setInputValue] = useState(""); //initializing state to store user input value
@@ -45,11 +46,11 @@ export default function MediaList() {
   const getDefaultMovies = async () => {
     try {
       const response = await axios.get(
-        `http://www.omdbapi.com/?s=Toy+Story&apikey=39132f6b&type=movie`
+        `https://www.omdbapi.com/?s=Toy+Story&apikey=39132f6b&type=movie`
       );
       const moviesArray = response.data.Search.map(async movie => {
         const detailedRes = await axios.get(
-          `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=39132f6b`
+          `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=39132f6b`
         );
 
         return Promise.resolve(detailedRes.data);
@@ -69,13 +70,13 @@ export default function MediaList() {
 
   return (
     <div>
-      <h1>Media-Watchlist</h1>
+      <h1>Media Watch List</h1>
 
       <Form onSubmit={handleSubmit}>
         {/* text input that has an event handler of onChange that runs the handleChange function defined on line 18 */}
         <input value={inputValue} onChange={handleChange} type="text" />
 
-        <Button type="submit">Search</Button>
+        <Button className="button-19 m-2" type="submit">Search</Button>
       </Form>
       <div className="movie-container">
         {apiData.length === 0 ? (

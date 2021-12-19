@@ -6,24 +6,34 @@
   --SiteSageGreen: #98D6D3;
 }
 
-@media all and (min-width: 480px) {
-    .Modal
-    .Login {
-      padding: 60px 0;
-      color: var(--SiteBlue);
-    }
-  
-    .Login form {
-      margin: 0 auto;
-      max-width: 320px;
-    }
+.movie-card{
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0px 5px 15px 2px #000000; 
+  box-shadow: 0px 5px 15px 2px #000000;
+}
 
-    .Login button {
-      background-color: var(--SiteGreen);
-      margin-top: 60px;
-    }
-  }
+.movie-card-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.movie-container{
+  margin-top: 50px;
+}
+
+.imdblogo {
+  width: 75%;
+}
+
+.js_logo {
+  width: 75%;
+}
+
+.thumbsup {
+  height: 1.5rem;
+  width: auto
+}
 /* Button CSS */
 .button-19 {
   appearance: button;
@@ -53,7 +63,7 @@
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  width: 7%;
+  width: auto;
 }
 
 .button-19:after {
@@ -82,12 +92,4 @@
 
 .button-19:disabled {
   cursor: auto;
-}
-
-.imdblogo {
-  width: 75%;
-}
-
-.js_logo {
-  width: 75%;
 }

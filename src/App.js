@@ -8,11 +8,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import About from "./components/About";
 import OAuth from "./components/OAuth";
-import Test from "./components/Test";
 import MediaList from "./components/MediaList";
 import ToastNotification from "./components/ToastNotification";
 import WatchListCard from "./components/WatchListCard";
 import Dashboard from "./components/Dashboard";
+import Logout from "./components/Logout";
 
 function App() {
   return (
@@ -24,14 +24,15 @@ function App() {
           <Route exact path="/oauth" element={<OAuth />} />
           <Route exact path="/login" element={<Login />} />
           {/* rendering MovieList component within app.js to keep code clean */}
-
-          <Route exact path="/" element={<MediaList />} />
+          <Route path="/medialist" element={<MediaList />} />
+          <Route exact path="/" element={<Login />} />
           <Route path="/watchlist" element={<Watchlist />} />
           <Route path="/favorites" element={<WatchListCard />} />
           <Route path="/dashboard" element={<Dashboard />} />
 
           <Route path="/about" element={<About />} />
-          <Route path="/test" element={<Test />} />
+          <Route path="/logout" element={<Logout />} />
+
         </Routes>
       </Router>
     </div>
