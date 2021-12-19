@@ -118,12 +118,12 @@ function checkRegistration() {
               }} block size="lg" type="submit">
                 Github Login 
               </Button>
-        <Button className="button-19 m-2" onClick={(e) => {
+        {/* <Button className="button-19 m-2" onClick={(e) => {
               e.preventDefault();
               window.location.href='https://new-mwl-backend.herokuapp.com/auth/google';
               }} block size="lg" type="submit">
                 Google Login 
-              </Button>
+              </Button> */}
       </Form>
     </div>
         </Modal.Body>
@@ -191,12 +191,12 @@ function checkRegistration() {
               }} block size="lg" type="submit">
                 Github Signup 
               </Button>
-        <Button className="button-19 m-2" onClick={(e) => {
+        {/* <Button className="button-19 m-2" onClick={(e) => {
               e.preventDefault();
               window.location.href='https://new-mwl-backend.herokuapp.com/auth/google';
               }} block size="lg" type="submit">
                 Google Signup 
-              </Button>
+              </Button> */}
       </Form>
     </div>
         </Modal.Body>

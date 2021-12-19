@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container' ;
 import ScottPic from './Images/Scott_aboutUS.jpeg';
 import JuliaPic from './Images/Julia_aboutUS.jpeg';
 import MikePic from './Images/Mike_aboutUS.jpeg';
-import external from './Images/external-link.png'
+import pofolio_logo from './Images/portfolio.png';
 import { Col, Row } from "react-bootstrap";
 
 function About() {
@@ -37,7 +37,7 @@ function About() {
                                 <img className="about-logo m-2" src={GitHub} alt="GithubLogo"></img>
                             </a>
                             <a href = "https://js-my-portfolio-react.herokuapp.com/">
-                                <img className = "about-logo" src = {external} alt = "PorfolioLink" />
+                                <img className = "about-logo" src = {pofolio_logo} alt = "PorfolioLink" />
                             </a>
                             </Col>
                         </Row>
@@ -66,7 +66,7 @@ function About() {
                                 <img className="about-logo m-2" src={GitHub} alt="GithubLogo"></img>
                             </a>
                             <a href = "https://mwoolfdev.netlify.app/">
-                                <img className = "about-logo" src = {external} alt = "PorfolioLink" />
+                                <img className = "about-logo" src = {pofolio_logo} alt = "PorfolioLink" />
                             </a>
                             </Col>
                         </Row>
@@ -95,7 +95,7 @@ function About() {
                                 <img className="about-logo m-2" src={GitHub} alt="GithubLogo"></img>
                             </a>
                             <a href = "https://scotthenderson.netlify.app/">
-                                <img className = "about-logo" src = {external} alt = "PorfolioLink" />
+                                <img className = "about-logo" src = {pofolio_logo} alt = "PorfolioLink" />
                             </a>
                             </Col>
                         </Row>
