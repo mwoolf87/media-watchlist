@@ -1,6 +1,6 @@
 import "./App.css";
 //importing react-bootstrap css in app.js
-import React from "react";
+import React, {useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/Login";
 import Watchlist from "./components/Watchlist";
@@ -20,20 +20,19 @@ function App() {
       <Router>
         <Navigation />
         <ToastNotification />
-        <Routes>
-          <Route exact path="/oauth" element={<OAuth />} />
-          <Route exact path="/login" element={<Login />} />
-          {/* rendering MovieList component within app.js to keep code clean */}
-          <Route path="/medialist" element={<MediaList />} />
-          <Route exact path="/" element={<Login />} />
-          <Route path="/watchlist" element={<Watchlist />} />
-          <Route path="/favorites" element={<FavoritesCard />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Routes>
+            <Route exact path="/oauth" element={<OAuth />} />
+            <Route exact path="/login" element={<Login />} />
+            {/* rendering MovieList component within app.js to keep code clean */}
+            <Route path="/medialist" element={<MediaList />} />
+            <Route exact path="/" element={<Login />} />
+            <Route path="/watchlist" element={<Watchlist />} />
+            <Route path="/favorites" element={<FavoritesCard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
 
-          <Route path="/about" element={<About />} />
-          <Route path="/logout" element={<Logout />} />
-
-        </Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/logout" element={<Logout />} />
+          </Routes>
       </Router>
     </div>
   );
