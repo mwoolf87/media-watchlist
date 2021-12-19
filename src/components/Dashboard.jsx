@@ -1,12 +1,18 @@
 import React from 'react'
+import {
+    Card
+  } from "react-bootstrap";
+  
 
 function Dashboard() {
     return (
         <div>
-            <h4>User "Username Here" Dashboard</h4>
-            <div>First: "first" </div>
-            <div>Last: "last"</div>
-            <div>Email: "email"</div>
+        <Card>
+        <Card.Body>
+            <Card.Title><h4>User Dashboard</h4></Card.Title>
+            <Card.Title><div>First: "first" </div></Card.Title>
+            <Card.Title><div>Last: "last"</div></Card.Title>
+            <Card.Title><div>Email: "email"</div></Card.Title>
             <div>
                 <form>
                     <label>
@@ -33,7 +39,8 @@ function Dashboard() {
             show toast notifcation that account has been delete */}
             <button>Logout</button>
             {/* Logout from account */}
-            
+            </Card.Body>
+            </Card>
         </div>
     )
 }
