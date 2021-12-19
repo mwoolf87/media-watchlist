@@ -146,10 +146,10 @@ export default function MovieCard(props) {
           </Col>
         </Row>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button className="button-19 m-2" variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button onClick={() => dispatch(setApiData(props.movie))}>
+          <Button className="button-19 m-2" onClick={() => dispatch(setApiData(props.movie))}>
             Add to Watchlist
           </Button>
         </Modal.Footer>
