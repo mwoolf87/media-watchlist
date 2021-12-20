@@ -20,7 +20,7 @@ function App() {
       <Router>
         <Navigation />
         <ToastNotification />
-        <Routes>
+        <Routes> 
           <Route exact path="/oauth" element={<OAuth />} />
           <Route exact path="/login" element={<Login />} />
           {/* rendering MovieList component within app.js to keep code clean */}
@@ -29,10 +29,8 @@ function App() {
           <Route path="/watchlist" element={<Watchlist />} />
           <Route path="/favorites" element={<WatchListCard />} />
           <Route path="/dashboard" element={<Dashboard />} />
-
           <Route path="/about" element={<About />} />
           <Route path="/logout" element={<Logout />} />
-
         </Routes>
       </Router>
     </div>
