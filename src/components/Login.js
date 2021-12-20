@@ -70,6 +70,11 @@ function checkRegistration() {
   .then (data => {
       console.log(data.registration);
       if (data.registration) {
+        sessionStorage.setItem("userID",data.session.userid)
+        sessionStorage.setItem("first",data.session.first)
+        sessionStorage.setItem("last",data.session.last)
+        sessionStorage.setItem("email",data.session.email)
+        sessionStorage.setItem("login",data.session.loggedIn)
         toast.success('🦄 Registration Successful!');
         navigate('/medialist');
       } else {
