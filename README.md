@@ -83,7 +83,7 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    npm install
    ```
-4. Enter your API in `SearchRecipe.js`
+4. Enter your API in `MediaList.js`
    ```js
    const API_KEY = 'ENTER YOUR API';
    const API_ID = 'ENTER YOUR KEY';
