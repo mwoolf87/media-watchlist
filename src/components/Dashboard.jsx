@@ -12,11 +12,11 @@ function logout() {
       },
     }).then (res => res.json())
     .then (data => {
-        console.log('clear session storage');
         console.log(data);
         if (data.message) {
-            window.localStorage.clear();
+            local.clear();
         }
+        toast.success('Logout Successful!');
     })
 };
 

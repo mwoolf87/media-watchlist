@@ -37,11 +37,11 @@ function checkLogin() {
       console.log(data.login);
       if (data.login) {
         // Set data from backend storage into the front end Session Storage
-        sessionStorage.setItem("userID",data.session.userid)
-        sessionStorage.setItem("first",data.session.first)
-        sessionStorage.setItem("last",data.session.last)
-        sessionStorage.setItem("email",data.session.email)
-        sessionStorage.setItem("login",data.session.loggedIn)
+        localStorage.setItem("userID",data.session.userid)
+        localStorage.setItem("first",data.session.first)
+        localStorage.setItem("last",data.session.last)
+        localStorage.setItem("email",data.session.email)
+        localStorage.setItem("login",data.session.loggedIn)
         toast.success('🦄 Login Successful!');
         navigate('/medialist');
       } else {
@@ -70,11 +70,11 @@ function checkRegistration() {
   .then (data => {
       console.log(data.registration);
       if (data.registration) {
-        sessionStorage.setItem("userID",data.session.userid)
-        sessionStorage.setItem("first",data.session.first)
-        sessionStorage.setItem("last",data.session.last)
-        sessionStorage.setItem("email",data.session.email)
-        sessionStorage.setItem("login",data.session.loggedIn)
+        localStorage.setItem("userID",data.session.userid)
+        localStorage.setItem("first",data.session.first)
+        localStorage.setItem("last",data.session.last)
+        localStorage.setItem("email",data.session.email)
+        localStorage.setItem("login",data.session.loggedIn)
         toast.success('🦄 Registration Successful!');
         navigate('/medialist');
       } else {
