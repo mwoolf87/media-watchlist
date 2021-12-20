@@ -1,4 +1,3 @@
-import { session } from 'passport';
 import React from 'react'
 import {Card} from "react-bootstrap";
  
@@ -12,6 +11,7 @@ function Dashboard() {
         <Card>
         <Card.Body>
             <Card.Title><h4>User Dashboard</h4></Card.Title>
+            <Card.Title><p>Welcome, </p></Card.Title>
             <Card.Title><div>First {String(storage.getItem("first"))} </div></Card.Title>
             <Card.Title><div>Last: {String(storage.getItem("last"))}</div></Card.Title>
             <Card.Title><div>Email: {String(storage.getItem("email"))}</div></Card.Title>
