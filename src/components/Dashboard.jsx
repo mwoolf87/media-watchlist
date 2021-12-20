@@ -3,8 +3,6 @@ import {Card} from "react-bootstrap";
  
 const storage = window.sessionStorage;
 
-const first = storage.getItem("userInfo")
-
 function Dashboard() {
     return (
         <div>
