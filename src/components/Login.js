@@ -36,8 +36,11 @@ function checkLogin() {
   .then (data => {
       console.log(data.login);
       if (data.login) {
-        console.log(data.session);
-        // sessionStorage.setItem("userInfo",JSON.stringify("session"))
+        sessionStorage.setItem("userID",data.session.userid)
+        sessionStorage.setItem("first",data.session.first)
+        sessionStorage.setItem("last",data.session.last)
+        sessionStorage.setItem("email",data.session.email)
+        sessionStorage.setItem("login",data.session.loggedIn)
         toast.success('🦄 Login Successful!');
         navigate('/medialist');
       } else {

@@ -1,8 +1,10 @@
+import { session } from 'passport';
 import React from 'react'
-import {
-    Card
-  } from "react-bootstrap";
-  
+import {Card} from "react-bootstrap";
+ 
+const storage = window.sessionStorage;
+
+const first = storage.getItem("userInfo")
 
 function Dashboard() {
     return (
@@ -10,9 +12,9 @@ function Dashboard() {
         <Card>
         <Card.Body>
             <Card.Title><h4>User Dashboard</h4></Card.Title>
-            <Card.Title><div>First: "first" </div></Card.Title>
-            <Card.Title><div>Last: "last"</div></Card.Title>
-            <Card.Title><div>Email: "email"</div></Card.Title>
+            <Card.Title><div>First {String(storage.getItem("first"))} </div></Card.Title>
+            <Card.Title><div>Last: {String(storage.getItem("last"))}</div></Card.Title>
+            <Card.Title><div>Email: {String(storage.getItem("email"))}</div></Card.Title>
             <div>
                 <form>
                     <label>
