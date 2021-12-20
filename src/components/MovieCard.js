@@ -148,7 +148,7 @@ export default function MovieCard(props) {
           <Button className="button-19 m-2" variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button onClick={() => getMovie(imdbID)}>Add to Watchlist</Button>
+          <Button font-size="30px" className="button-19 m-2" onClick={() => getMovie(imdbID)}><Image className="thumbsup" src={thumbsup}></Image></Button>
         </Modal.Footer>
       </Modal>
     </div>
