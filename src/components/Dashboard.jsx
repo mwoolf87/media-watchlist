@@ -1,5 +1,6 @@
 import React from 'react'
 import {Card} from "react-bootstrap";
+import { toast } from 'react-toastify';
  
 const local = window.localStorage;
 
@@ -26,9 +27,7 @@ function Dashboard() {
         <Card>
         <Card.Body>
             <Card.Title><h4>User Dashboard</h4></Card.Title>
-            <Card.Title><p>Welcome, </p></Card.Title>
-            <Card.Title><div>First {String(local.getItem("first"))} </div></Card.Title>
-            <Card.Title><div>Last: {String(local.getItem("last"))}</div></Card.Title>
+            <Card.Title><p>Welcome, {String(local.getItem("first"))} {String(local.getItem("last"))}</p></Card.Title>
             <Card.Title><div>Email: {String(local.getItem("email"))}</div></Card.Title>
             <div>
                 <form>

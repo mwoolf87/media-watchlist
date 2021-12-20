@@ -1,6 +1,5 @@
 import React from 'react';
 import "../CSS/Logout.css";
-import { toast } from 'react-toastify';
 
 // Check for Session Storage
 // If Session storage exists, give user option to logout
