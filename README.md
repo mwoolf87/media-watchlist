@@ -43,7 +43,7 @@
 
 Tired of your kid Cars 3 for the 100th time? Excited about the newest Marvel release but not sure it is appropriate for you kid? 
 
-Our team wanted to make a website to let parents discover the newest movie for your kid to become obessed over, and give all the information necessary to make sure it is appropriate. With Media Watch List, you can easily save movie recommendations, browse for potential dealbreakers, and have all the information necessary to make the deciiosn for you child. 
+Media Watch List is a website that aggregates information from movie databases for a user to easily like or add a movie to a watchlist. The market for our project is specifically parents of young children, who need an easy way to save movie recommendations and review relevant information such as ratings before showing their child a new movie. No more scrolling endlessly through various notes in your note app to remember where you stashed recommendations from friends, you can save your movies in an organized and informative way using our website.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
