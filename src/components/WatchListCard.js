@@ -23,9 +23,12 @@ export default function WatchListCard({ movie }) {
 
   const justWatchURL = "https://www.justwatch.com/us/movie/" + dashedTitle;
 
+  const local = window.localStorage;
+  let userID = local.getItem("userID");
+
   const deleteMovie = () => {
     axios.delete(
-      "https://new-mwl-backend.herokuapp.com/watchlist/1",
+      `https://new-mwl-backend.herokuapp.com/watchlist/${userID}`,
       movie.data
     );
   };

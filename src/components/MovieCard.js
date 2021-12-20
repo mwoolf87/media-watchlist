@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Card,
-  Button,
-  Modal,
-  Row,
-  Col,
-  Image
-} from "react-bootstrap";
+import { Card, Button, Modal, Row, Col, Image } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { setApiData } from "../redux/actions/movieData-actions";
 // import { setModalData } from "../redux/actions/detailedMovieData-actions";
@@ -14,9 +7,9 @@ import imdblogo from "./Images/imdb.png";
 import csmlogo from "./Images/csm.png";
 import justwatch from "./Images/justwatch-square.png";
 import "../CSS/MovieCard.css";
-import thumbsup from './Images/thumbsup.jpg';
+import thumbsup from "./Images/thumbsup.jpg";
 import axios from "axios";
-
+import { toast } from "react-toastify";
 export default function MovieCard(props) {
   // Function to trigger modal to show
 
@@ -25,11 +18,20 @@ export default function MovieCard(props) {
   const [modalShow, setModalShow] = useState(false);
 
   const getMovie = imdbId => {
+    const local = window.localStorage;
+    let userID = local.getItem("userID");
     axios
       .get(`http://www.omdbapi.com/?i=${imdbId}&apikey=39132f6b`)
       .then(res => {
-        axios.post("https://new-mwl-backend.herokuapp.com/watchlist", res.data);
+        axios.post(
+          `https://new-mwl-backend.herokuapp.com/watchlist/${userID}`,
+          res.data,
+          {
+            credentials: "include"
+          }
+        );
       });
+    toast.success("Movie added to Watch List!");
   };
 
   // let { Actors } = entireObject;
@@ -88,7 +90,11 @@ export default function MovieCard(props) {
 
           {/* calling dispatch to set the state of our watchlist data in reducer */}
           {/* Parents guide from IMDB */}
-          <Button className="button-19 m-2" onClick={() => setModalShow(true)} variant="warning">
+          <Button
+            className="button-19 m-2"
+            onClick={() => setModalShow(true)}
+            variant="warning"
+          >
             More Info
           </Button>
           {/*           
@@ -96,9 +102,13 @@ export default function MovieCard(props) {
             Launch demo modal
           </Button>*/}
 
-          <Button font-size="30px" className="button-19 m-2" onClick={() => dispatch(setApiData(props.movie))}><Image className="thumbsup" src={thumbsup}></Image></Button>
-
-          {/* <Button onClick={() => getMovie(imdbID)}>Add to Watchlist</Button> */}
+          <Button
+            fontSize="30px"
+            className="button-19 m-2"
+            onClick={() => console.log(getMovie(imdbID))}
+          >
+            <Image className="thumbsup" src={thumbsup}></Image>
+          </Button>
         </Card.Body>
       </Card>
       {modalShow && <Modal />}
@@ -145,10 +155,16 @@ export default function MovieCard(props) {
           </Col>
         </Row>
         <Modal.Footer>
-          <Button className="button-19 m-2" variant="secondary" onClick={handleClose}>
+          <Button
+            className="button-19 m-2"
+            variant="secondary"
+            onClick={handleClose}
+          >
             Close
           </Button>
-          <Button onClick={() => getMovie(imdbID)}>Add to Watchlist</Button>
+          <Button onClick={() => console.log(getMovie(imdbID))}>
+            Add to Watchlist
+          </Button>
         </Modal.Footer>
       </Modal>
     </div>
