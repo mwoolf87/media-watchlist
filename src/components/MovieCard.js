@@ -23,13 +23,20 @@ export default function MovieCard(props) {
     axios
       .get(`http://www.omdbapi.com/?i=${imdbId}&apikey=39132f6b`)
       .then(res => {
-        axios.post(
+        fetch(
           `https://new-mwl-backend.herokuapp.com/watchlist/${userID}`,
           res.data,
           {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            },
             credentials: "include"
           }
-        );
+        )
+          .then(res => res.json())
+          .then(data => console.log(data));
       });
     toast.success("Movie added to Watch List!");
   };
