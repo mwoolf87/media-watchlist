@@ -17,9 +17,10 @@ import "../CSS/MovieCard.css";
 import thumbsup from './Images/thumbsup.jpg';
 import axios from "axios";
 
+
 export default function MovieCard(props) {
   // Function to trigger modal to show
-
+  const local = window.localStorage;
   // Todo: Guard against 404 errors on url links on modal
 
   const [modalShow, setModalShow] = useState(false);
