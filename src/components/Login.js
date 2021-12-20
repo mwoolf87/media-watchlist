@@ -70,7 +70,6 @@ function checkRegistration() {
   .then (data => {
       console.log(data.registration);
       if (data.registration) {
-
         toast.success('🦄 Registration Successful!');
         navigate('/medialist');
       } else {
