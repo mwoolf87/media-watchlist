@@ -6,7 +6,7 @@ import "../CSS/Logout.css";
 //      Once user clicks logout, redirect to user login page
 // If no session storage exists, redirect user to login page
 
-function logout {
+function logout() {
     fetch('https://new-mwl-backend.herokuapp.com/logout', {
       method: "GET",
       headers: {
