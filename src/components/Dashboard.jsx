@@ -3,6 +3,22 @@ import {Card} from "react-bootstrap";
  
 const storage = window.sessionStorage;
 
+function logout() {
+    fetch('https://new-mwl-backend.herokuapp.com/logout', {
+      method: "GET",
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+    }).then (res => res.json())
+    .then (data => {
+        console.log('clear session storage');
+        if (data.message) {
+            storage.clear();
+        }
+    })
+};
+
 function Dashboard() {
     return (
         <div>
@@ -37,7 +53,9 @@ function Dashboard() {
             <button>Delete Account</button>
             {/* Delete account, delete user and then switch user to registration page
             show toast notifcation that account has been delete */}
-            <button>Logout</button>
+            <Button className="button-19 m-2" block size="lg" type="submit" onClick={logout}>
+                Log Out
+            </Button>
             {/* Logout from account */}
             </Card.Body>
             </Card>
