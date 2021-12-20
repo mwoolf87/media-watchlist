@@ -1,7 +1,25 @@
 import React from 'react'
 import {Card} from "react-bootstrap";
+import { toast } from 'react-toastify';
  
-const storage = window.sessionStorage;
+const local = window.localStorage;
+
+function logout() {
+    fetch('https://new-mwl-backend.herokuapp.com/logout', {
+      method: "GET",
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+    }).then (res => res.json())
+    .then (data => {
+        console.log(data);
+        if (data.message) {
+            local.clear();
+        }
+        toast.success('Logout Successful!');
+    })
+};
 
 function Dashboard() {
     return (
@@ -9,10 +27,8 @@ function Dashboard() {
         <Card>
         <Card.Body>
             <Card.Title><h4>User Dashboard</h4></Card.Title>
-            <Card.Title><p>Welcome, </p></Card.Title>
-            <Card.Title><div>First {String(storage.getItem("first"))} </div></Card.Title>
-            <Card.Title><div>Last: {String(storage.getItem("last"))}</div></Card.Title>
-            <Card.Title><div>Email: {String(storage.getItem("email"))}</div></Card.Title>
+            <Card.Title><p>Welcome, {String(local.getItem("first"))} {String(local.getItem("last"))}</p></Card.Title>
+            <Card.Title><div>Email: {String(local.getItem("email"))}</div></Card.Title>
             <div>
                 <form>
                     <label>
@@ -37,7 +53,9 @@ function Dashboard() {
             <button>Delete Account</button>
             {/* Delete account, delete user and then switch user to registration page
             show toast notifcation that account has been delete */}
-            <button>Logout</button>
+            <button onClick={logout}>
+            Log Out
+            </button>
             {/* Logout from account */}
             </Card.Body>
             </Card>

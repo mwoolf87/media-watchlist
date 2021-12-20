@@ -10,11 +10,8 @@ export default function Navigation() {
             <Navbar className="nav-links" expand="lg" variant="dark" bg="dark">
                     <Link className="m-3" to="/medialist">Home</Link>
                     <Link className="m-3" to="/watchlist">Watchlist</Link>
-                    <Link className="m-3" to="/about">About </Link>
                     <Link className="m-3" to="/dashboard">Dashboard</Link>
-
-                    <Link className="m-3" to="/logout">Logout</Link>
-
+                    <Link className="m-3" to="/about">About </Link>
             </Navbar>
         </Container>
 
