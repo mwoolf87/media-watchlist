@@ -15,6 +15,7 @@
   align-items: center;
   margin: 0 auto;
   background-color: var(--SiteBlue);
+
     
 }  
 .nav-links {
@@ -27,6 +28,8 @@
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
+  background-color: var(--SiteBlue);
+
 }
 
 div.navbar.container {
