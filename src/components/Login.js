@@ -36,6 +36,7 @@ function checkLogin() {
   .then (data => {
       console.log(data.login);
       if (data.login) {
+        // Set data from backend storage into the front end Session Storage
         sessionStorage.setItem("userID",data.session.userid)
         sessionStorage.setItem("first",data.session.first)
         sessionStorage.setItem("last",data.session.last)
