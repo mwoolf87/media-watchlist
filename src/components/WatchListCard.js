@@ -5,8 +5,9 @@ import csmlogo from "./Images/csm.png";
 import justwatch from "./Images/justwatch-square.png";
 import axios from "axios";
 import "../CSS/MovieCard.css";
+import { useNavigate } from "react-router";
 
-export default function WatchListCard({ movie }) {
+export default function WatchListCard({ movie, setWatchListData }) {
   const [modalShow, setModalShow] = useState(false);
   const handleClose = () => setModalShow(false);
   const handleShow = () => setModalShow(true);
@@ -26,11 +27,17 @@ export default function WatchListCard({ movie }) {
   const local = window.localStorage;
   let userID = local.getItem("userID");
 
-  function deleteMovie(imdbID) {
-    axios.delete(`https://new-mwl-backend.herokuapp.com/watchlist/${imdbID}`, {
-      data: { UserId: userID }
-    });
-  }
+  const deleteMovie = async imdbID => {
+    await axios.delete(
+      `https://new-mwl-backend.herokuapp.com/watchlist/${imdbID}`,
+      {
+        data: { UserId: userID }
+      }
+    );
+    axios
+      .get(`https://new-mwl-backend.herokuapp.com/watchlist/${userID}`)
+      .then(res => setWatchListData(res.data));
+  };
 
   return (
     <div>
@@ -56,8 +63,8 @@ export default function WatchListCard({ movie }) {
               </Button>
             </Card.Body>
           </Card>
+          {/* Modal Begins */}
           {modalShow && <Modal />}
-
           <Modal show={modalShow} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>{movie.title}</Modal.Title>

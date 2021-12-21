@@ -21,10 +21,9 @@ export default function WatchList() {
   return (
     <div>
       <h1>
-        {String(local.getItem("first"))} {String(local.getItem("last"))}{" "}
+        {String(local.getItem("first"))} {String(local.getItem("last"))}'s
         Media-Watchlist
       </h1>
-      <p> {local.getItem("userID")}</p>
       <Row>
         {watchListData &&
           watchListData.map((movie, id) => {
@@ -38,7 +37,10 @@ export default function WatchList() {
                 xl={4}
                 className="mb-6"
               >
-                <WatchListCard movie={movie} />
+                <WatchListCard
+                  movie={movie}
+                  setWatchListData={setWatchListData}
+                />
               </Col>
             );
           })}
