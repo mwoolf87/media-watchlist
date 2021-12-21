@@ -15,7 +15,7 @@
   align-items: center;
   margin: 0 auto;
   background-color: var(--SiteBlue);
-
+  overflow: hidden;
     
 }  
 .nav-links {
@@ -24,7 +24,7 @@
   background-color: var(--SiteBlue);
 }
 
-.m-3 {
+.m-2 {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
@@ -37,7 +37,7 @@ div.navbar.container {
   padding: 0;
 }
 
-a.m-3 {
+a.m-2 {
   color: var(--SiteWhite);
 }
   
