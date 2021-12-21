@@ -72,6 +72,7 @@ export default function MovieCard(props) {
       imdbRating: imdbRating,
       imdbID: imdbID
     };
+    console.log(movieBody);
     axios
       .post(`https://new-mwl-backend.herokuapp.com/watchlist/${userID}`, {
         method: "POST",
