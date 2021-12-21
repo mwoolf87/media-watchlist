@@ -32,59 +32,48 @@ export default function MovieCard(props) {
 
   const [modalShow, setModalShow] = useState(false);
 
-  // const getMovie = imdbId => {
-  //   const local = window.localStorage;
-  //   let userID = local.getItem("userID");
-  //   axios
-  //     .get(`http://www.omdbapi.com/?i=${imdbId}&apikey=39132f6b`)
-  //     .then(res => {
-  //       fetch(
-  //         `https://new-mwl-backend.herokuapp.com/watchlist/${userID}`,
-  //         res.data,
-  //         {
-  //           method: "POST",
-  //           headers: {
-  //             Accept: "application/json",
-  //             "Content-Type": "application/json"
-  //           },
-  //           credentials: "include"
-  //         }
-  //       )
-  //         .then(res => res.json())
-  //         .then(data => console.log(data));
-  //     });
-  //   toast.success("Movie added to Watch List!");
-  // };
-
-  const getMovie = () => {
+  const getMovie = imdbId => {
     const local = window.localStorage;
     let userID = local.getItem("userID");
-    const movieBody = {
-      title: Title,
-      poster: Poster,
-      runTime: Runtime,
-      year: Year,
-      director: Director,
-      genre: Genre,
-      language: Language,
-      metaScore: Metascore,
-      plot: Plot,
-      imdbRating: imdbRating,
-      imdbID: imdbID
-    };
-    console.log(movieBody);
     axios
-      .post(`https://new-mwl-backend.herokuapp.com/watchlist/${userID}`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        // credentials: "include",
-        body: JSON.stringify(movieBody)
-      })
-      .then(data => console.log(data));
+      .get(`http://www.omdbapi.com/?i=${imdbId}&apikey=39132f6b`)
+      .then(res => {
+        axios.post(
+          `https://new-mwl-backend.herokuapp.com/watchlist/${userID}`,
+          res.data
+        );
+      });
   };
+
+  // const getMovie = () => {
+  //   const local = window.localStorage;
+  //   let userID = local.getItem("userID");
+  //   const movieBody = {
+  //     title: Title,
+  //     poster: Poster,
+  //     runTime: Runtime,
+  //     year: Year,
+  //     director: Director,
+  //     genre: Genre,
+  //     language: Language,
+  //     metaScore: Metascore,
+  //     plot: Plot,
+  //     imdbRating: imdbRating,
+  //     imdbID: imdbID
+  //   };
+  //   console.log(movieBody);
+  //   axios
+  //     .post(`https://new-mwl-backend.herokuapp.com/watchlist/${userID}`, {
+  //       method: "POST",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-Type": "application/json"
+  //       },
+  //       // credentials: "include",
+  //       body: JSON.stringify(movieBody)
+  //     })
+  //     .then(data => console.log(data));
+  // };
 
   // let { Actors } = entireObject;
   // console.log(Actors);
@@ -142,7 +131,7 @@ export default function MovieCard(props) {
           <Button
             fontSize="30px"
             className="button-19 m-2"
-            onClick={() => getMovie()}
+            onClick={() => getMovie(imdbId)}
           >
             <Image className="thumbsup" src={thumbsup}></Image>
           </Button>
