@@ -7,14 +7,17 @@ import ScottPic from './Images/Scott_aboutUS.jpeg';
 import JuliaPic from './Images/Julia_aboutUS.jpeg';
 import MikePic from './Images/Mike_aboutUS.jpeg';
 import pofolio_logo from './Images/portfolio.png';
-import { Col, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
+import "../CSS/About.css";
+
 
 function About() {
   return (
     <>
-        <Container className = "Profiles">
+        <Container className ="profileCard">
             <Row>
                 <Col>
+                <Card>
                     {/* Julia Profile */}
                     <Container className = "pb-3">
                         <Row>
@@ -42,8 +45,10 @@ function About() {
                             </Col>
                         </Row>
                     </Container>
+                    </Card>
                 </Col>
                 <Col>
+                <Card>
                     {/* Mike Profile */}
                     <Container className = "pb-3">
                         <Row>
@@ -71,8 +76,10 @@ function About() {
                             </Col>
                         </Row>
                     </Container>
+                    </Card>
                 </Col>
                 <Col>
+                <Card>
                     {/* Scott Henderson profile */}
                     <Container className = "pb-3">
                         <Row>
@@ -100,6 +107,7 @@ function About() {
                             </Col>
                         </Row>
                     </Container>
+                    </Card>
                 </Col>
             </Row>
             
