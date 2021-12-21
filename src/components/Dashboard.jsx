@@ -1,3 +1,4 @@
+
 import React from 'react'
 import {Card} from "react-bootstrap";
 import { toast } from 'react-toastify';
@@ -7,23 +8,25 @@ import "../CSS/Dashboard.css";
 const local = window.localStorage;
 
 function logout() {
-    fetch('https://new-mwl-backend.herokuapp.com/logout', {
-      method: "GET",
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      },
-    }).then (res => res.json())
-    .then (data => {
-        console.log(data);
-        if (data.message) {
-            local.clear();
-        }
-        toast.success('Logout Successful!');
-    })
-};
+  fetch("https://new-mwl-backend.herokuapp.com/logout", {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      if (data.message) {
+        local.clear();
+      }
+      toast.success("Logout Successful!");
+    });
+}
 
 function Dashboard() {
+
     return (
         <div class="dashboard">
         <Card style={{ width: '30rem' }}>
@@ -65,4 +68,4 @@ function Dashboard() {
     )
 }
 
-export default Dashboard
+export default Dashboard;
