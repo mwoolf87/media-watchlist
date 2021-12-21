@@ -221,7 +221,7 @@ function checkRegistration() {
     return (
       <>
       <div>
-      <Image className="profilePic" src={MWL} alt="Profile Pic" rounded />
+      <Image className="logoPic" src={MWL} alt="Media Watch List logo" rounded />
       </div>
         <Button className="button-19 m-2" role="button" block size="lg" onClick={() => setLoginModalShow(true)}>
           Login
