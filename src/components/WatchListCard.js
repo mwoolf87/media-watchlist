@@ -23,11 +23,13 @@ export default function WatchListCard({ movie }) {
 
   const justWatchURL = "https://www.justwatch.com/us/movie/" + dashedTitle;
 
-  const deleteMovie = () => {
-    axios.delete(
-      `https://new-mwl-backend.herokuapp.com/watchlist/${movie.imdbID}`,
-      movie.data
-    );
+  const local = window.localStorage;
+  let userID = local.getItem("userID");
+
+  const deleteMovie = imdbID => {
+    axios.delete(`https://new-mwl-backend.herokuapp.com/watchlist/${imdbID}`, {
+      data: { UserId: userID }
+    });
   };
 
   return (
@@ -46,7 +48,7 @@ export default function WatchListCard({ movie }) {
               <Button onClick={() => setModalShow(true)} variant="warning">
                 More Info
               </Button>
-              <Button onClick={() => deleteMovie()} variant="danger">
+              <Button onClick={() => deleteMovie(imdbID)} variant="danger">
                 Delete Movie
               </Button>
             </Card.Body>
