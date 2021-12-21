@@ -12,33 +12,77 @@ import axios from "axios";
 import { toast } from "react-toastify";
 export default function MovieCard(props) {
   // Function to trigger modal to show
-  const local = window.localStorage;
+  // const local = window.localStorage;
   // Todo: Guard against 404 errors on url links on modal
+  const {
+    Director,
+    Genre,
+    imdbRating,
+    imdbID,
+    Language,
+    Metascore,
+    Plot,
+    Poster,
+    Released,
+    Rated,
+    Runtime,
+    Title,
+    Year
+  } = props.movie;
 
   const [modalShow, setModalShow] = useState(false);
 
-  const getMovie = imdbId => {
+  // const getMovie = imdbId => {
+  //   const local = window.localStorage;
+  //   let userID = local.getItem("userID");
+  //   axios
+  //     .get(`http://www.omdbapi.com/?i=${imdbId}&apikey=39132f6b`)
+  //     .then(res => {
+  //       fetch(
+  //         `https://new-mwl-backend.herokuapp.com/watchlist/${userID}`,
+  //         res.data,
+  //         {
+  //           method: "POST",
+  //           headers: {
+  //             Accept: "application/json",
+  //             "Content-Type": "application/json"
+  //           },
+  //           credentials: "include"
+  //         }
+  //       )
+  //         .then(res => res.json())
+  //         .then(data => console.log(data));
+  //     });
+  //   toast.success("Movie added to Watch List!");
+  // };
+
+  const getMovie = () => {
     const local = window.localStorage;
     let userID = local.getItem("userID");
+    const movieBody = {
+      title: Title,
+      poster: Poster,
+      runTime: Runtime,
+      year: Year,
+      director: Director,
+      genre: Genre,
+      language: Language,
+      metaScore: Metascore,
+      plot: Plot,
+      imdbRating: imdbRating,
+      imdbID: imdbID
+    };
     axios
-      .get(`http://www.omdbapi.com/?i=${imdbId}&apikey=39132f6b`)
-      .then(res => {
-        fetch(
-          `https://new-mwl-backend.herokuapp.com/watchlist/${userID}`,
-          res.data,
-          {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json"
-            },
-            credentials: "include"
-          }
-        )
-          .then(res => res.json())
-          .then(data => console.log(data));
-      });
-    toast.success("Movie added to Watch List!");
+      .post(`https://new-mwl-backend.herokuapp.com/watchlist/${userID}`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        // credentials: "include",
+        body: JSON.stringify(movieBody)
+      })
+      .then(data => console.log(data));
   };
 
   // let { Actors } = entireObject;
@@ -56,21 +100,6 @@ export default function MovieCard(props) {
 
   const CAT_404 = "https://http.cat/404";
 
-  const {
-    Director,
-    Genre,
-    imdbRating,
-    imdbID,
-    Language,
-    Metascore,
-    Plot,
-    Poster,
-    Released,
-    Rated,
-    Runtime,
-    Title,
-    Year
-  } = props.movie;
   /* Define custom urls */
   const parentsGuideURL =
     "https://www.imdb.com/title/" + imdbID + "/parentalguide";
@@ -112,7 +141,7 @@ export default function MovieCard(props) {
           <Button
             fontSize="30px"
             className="button-19 m-2"
-            onClick={() => console.log(getMovie(imdbID))}
+            onClick={() => getMovie()}
           >
             <Image className="thumbsup" src={thumbsup}></Image>
           </Button>
