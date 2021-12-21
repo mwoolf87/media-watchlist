@@ -26,11 +26,11 @@ export default function WatchListCard({ movie }) {
   const local = window.localStorage;
   let userID = local.getItem("userID");
 
-  const deleteMovie = imdbID => {
+  function deleteMovie(imdbID) {
     axios.delete(`https://new-mwl-backend.herokuapp.com/watchlist/${imdbID}`, {
       data: { UserId: userID }
     });
-  };
+  }
 
   return (
     <div>
@@ -48,7 +48,10 @@ export default function WatchListCard({ movie }) {
               <Button onClick={() => setModalShow(true)} variant="warning">
                 More Info
               </Button>
-              <Button onClick={() => deleteMovie(imdbID)} variant="danger">
+              <Button
+                onClick={() => deleteMovie(movie.imdbID)}
+                variant="danger"
+              >
                 Delete Movie
               </Button>
             </Card.Body>
