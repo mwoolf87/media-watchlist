@@ -36,7 +36,7 @@ export default function MovieCard(props) {
     const local = window.localStorage;
     let userID = local.getItem("userID");
     axios
-      .get(`http://www.omdbapi.com/?i=${imdbId}&apikey=39132f6b`)
+      .get(`https://www.omdbapi.com/?i=${imdbId}&apikey=39132f6b`)
       .then(res => {
         axios.post(
           `https://new-mwl-backend.herokuapp.com/watchlist/${userID}`,
@@ -131,7 +131,7 @@ export default function MovieCard(props) {
           <Button
             fontSize="30px"
             className="button-19 m-2"
-            onClick={() => getMovie(imdbId)}
+            onClick={() => getMovie(imdbID)}
           >
             <Image className="thumbsup" src={thumbsup}></Image>
           </Button>
