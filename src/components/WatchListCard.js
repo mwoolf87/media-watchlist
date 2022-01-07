@@ -6,6 +6,9 @@ import justwatch from "./Images/justwatch-square.png";
 import axios from "axios";
 import "../CSS/MovieCard.css";
 import { useNavigate } from "react-router";
+import "../CSS/MovieCard.css";
+import { toast } from 'react-toastify';
+
 
 export default function WatchListCard({ movie, setWatchListData }) {
   const [modalShow, setModalShow] = useState(false);
@@ -37,6 +40,7 @@ export default function WatchListCard({ movie, setWatchListData }) {
     axios
       .get(`https://new-mwl-backend.herokuapp.com/watchlist/${userID}`)
       .then(res => setWatchListData(res.data));
+      toast.success('Movie Deleted!');
   };
 
   return (
@@ -52,14 +56,15 @@ export default function WatchListCard({ movie, setWatchListData }) {
               <Card.Title>{movie.title}</Card.Title>
               <Card.Title>{movie.released}</Card.Title>
               <Card.Title>{movie.rated}</Card.Title>
-              <Button onClick={() => setModalShow(true)} variant="warning">
+              <Button className="button-19 m-2" onClick={() => setModalShow(true)} variant="warning">
                 More Info
               </Button>
               <Button
+                className="button-19 m-2"
                 onClick={() => deleteMovie(movie.imdbID)}
                 variant="danger"
               >
-                Delete Movie
+                Delete
               </Button>
             </Card.Body>
           </Card>
@@ -119,7 +124,7 @@ export default function WatchListCard({ movie, setWatchListData }) {
               </Col>
             </Row>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button className="button-19 m-2" variant="secondary" onClick={handleClose}>
                 Close
               </Button>
             </Modal.Footer>

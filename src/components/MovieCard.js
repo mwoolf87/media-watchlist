@@ -10,6 +10,7 @@ import "../CSS/MovieCard.css";
 import thumbsup from "./Images/thumbsup.jpg";
 import axios from "axios";
 import { toast } from "react-toastify";
+
 export default function MovieCard(props) {
   // Function to trigger modal to show
   // const local = window.localStorage;
@@ -44,6 +45,7 @@ export default function MovieCard(props) {
           res.data
         );
       });
+    toast.success('Movie Added to WatchList!');
   };
 
   // const getMovie = () => {
