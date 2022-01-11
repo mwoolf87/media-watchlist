@@ -6,6 +6,8 @@ import "../CSS/NavBar.css";
 import { HiOutlineUser } from "react-icons/hi";
 
 function NavBar() {
+  const local = window.localStorage;
+
   return (
     <Navbar style={{ backgroundColor: "#1B4D89" }} collapseOnSelect expand="md" fixed = "top">
       <Container>
@@ -18,6 +20,9 @@ function NavBar() {
               <Link className = "navLinks" to="/watchlist">Watchlist</Link>
               <Link className = "navLinks" to="/about">About</Link>
               <Link className = "navLinks" to="/dashboard"><HiOutlineUser/></Link>
+              {String(local.getItem("first")) && String(local.getItem("last")) === "null" ? (
+                <p>Welcome, Guest!</p> ) : (
+                <p>Welcome, {String(local.getItem("first"))} {String(local.getItem("last"))}!</p>)}
             </Nav>
           </Container>
         </Navbar.Collapse>
