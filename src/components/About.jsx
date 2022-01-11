@@ -8,6 +8,7 @@ import JuliaPic from './Images/Julia_aboutUS.jpeg';
 import MikePic from './Images/Mike_aboutUS.jpeg';
 import pofolio_logo from './Images/portfolio.png';
 import { Col, Row } from "react-bootstrap";
+import Contact from "./Contact";
 
 function About() {
   return (
@@ -103,6 +104,9 @@ function About() {
                 </Col>
             </Row>
             
+        </Container>
+        <Container>
+            <Contact />
         </Container>
     </>
   );
