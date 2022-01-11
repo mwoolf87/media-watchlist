@@ -3,6 +3,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../CSS/NavBar.css";
+import { HiOutlineUser } from "react-icons/hi";
 
 function NavBar() {
   return (
@@ -15,8 +16,8 @@ function NavBar() {
             <Nav className="navbar-nav">
               <Link className = "navLinks" to="/medialist">Home</Link>
               <Link className = "navLinks" to="/watchlist">Watchlist</Link>
-              <Link className = "navLinks" to="/dashboard">Dashboard</Link>
               <Link className = "navLinks" to="/about">About</Link>
+              <Link className = "navLinks" to="/dashboard"><HiOutlineUser/></Link>
             </Nav>
           </Container>
         </Navbar.Collapse>
