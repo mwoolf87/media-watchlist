@@ -22,6 +22,10 @@
     font-size: 1.5em;
 }
 
+.navLinks:hover {
+  color: var(--SiteYellow); /*will change color of text within the element on hover */
+} 
+
 .navbar-nav {
     justify-content: space-around;
     color: white;
