@@ -21,10 +21,15 @@ export default function WatchList() {
 
   return (
     <div>
-      <h1>
-        {String(local.getItem("first"))} {String(local.getItem("last"))}'s
-        Media-Watchlist
-      </h1>
+      {String(local.getItem("first")) &&
+      String(local.getItem("last")) === "null" ? (
+        <h1>Guest User's Media-Watchlist</h1>
+      ) : (
+        <h1>
+          {String(local.getItem("first"))} {String(local.getItem("last"))}'s
+          Media-Watchlist
+        </h1>
+      )}
       <Row>
         {watchListData &&
           watchListData.map((movie, id) => {
