@@ -20,9 +20,9 @@ function NavBar() {
               <Link className = "navLinks" to="/watchlist">Watchlist</Link>
               <Link className = "navLinks" to="/about">About</Link>
               <Link className = "navLinks" to="/dashboard"><HiOutlineUser/></Link>
-              {String(local.getItem("first")) && String(local.getItem("last")) === "null" ? (
-                <p>Welcome, Guest!</p> ) : (
-                <p>Welcome, {String(local.getItem("first"))} {String(local.getItem("last"))}!</p>)}
+              <Navbar.Brand style={{ color: "#F9E45B" }}>{String(local.getItem("first")) && String(local.getItem("last")) === "null" ? (
+                <a>Welcome, Guest!</a> ) : (
+                <a>Welcome, {String(local.getItem("first"))} {String(local.getItem("last"))}!</a>)}</Navbar.Brand>
             </Nav>
           </Container>
         </Navbar.Collapse>
