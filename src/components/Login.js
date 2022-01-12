@@ -36,6 +36,12 @@ function checkLogin() {
   .then (data => {
       console.log(data.login);
       if (data.login) {
+        // Set data from backend storage into the front end Session Storage
+        localStorage.setItem("userID",data.session.userid)
+        localStorage.setItem("first",data.session.first)
+        localStorage.setItem("last",data.session.last)
+        localStorage.setItem("email",data.session.email)
+        localStorage.setItem("login",data.session.loggedIn)
         toast.success('🦄 Login Successful!');
         navigate('/medialist');
       } else {
@@ -64,6 +70,11 @@ function checkRegistration() {
   .then (data => {
       console.log(data.registration);
       if (data.registration) {
+        localStorage.setItem("userID",data.session.userid)
+        localStorage.setItem("first",data.session.first)
+        localStorage.setItem("last",data.session.last)
+        localStorage.setItem("email",data.session.email)
+        localStorage.setItem("login",data.session.loggedIn)
         toast.success('🦄 Registration Successful!');
         navigate('/medialist');
       } else {
@@ -210,7 +221,7 @@ function checkRegistration() {
     return (
       <>
       <div>
-      <Image className="profilePic" src={MWL} alt="Profile Pic" rounded />
+      <Image className="logoPic" src={MWL} alt="Media Watch List logo" rounded />
       </div>
         <Button className="button-19 m-2" role="button" block size="lg" onClick={() => setLoginModalShow(true)}>
           Login

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Row, Button, Form } from "react-bootstrap";
 import MovieCard from "./MovieCard";
+const local = window.localStorage;
 
 export default function MediaList() {
   const [apiData, setApiData] = useState([]); //initializing state to store movie data from our api call in an array
@@ -70,8 +71,7 @@ export default function MediaList() {
 
   return (
     <div>
-      <h1>Media Watch List</h1>
-
+      <h1></h1>
       <Form onSubmit={handleSubmit}>
         {/* text input that has an event handler of onChange that runs the handleChange function defined on line 18 */}
         <input value={inputValue} onChange={handleChange} type="text" />

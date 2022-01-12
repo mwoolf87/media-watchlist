@@ -6,35 +6,32 @@
     --SiteSageGreen: #98D6D3;
   }
 
-.color-nav {
-  background-color: var(--SiteBlue);
-}
-  
-.navbar {
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-  background-color: var(--SiteBlue);
-    
-}  
-.nav-links {
-  display: inline;
-  padding-right: 30px;
-  background-color: var(--SiteBlue);
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.m-3 {
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: bold;
+.navig-style {
+    display: flex;
+    align-items: flex-end;
 }
 
-div.navbar.container {
-  background-color: var(--SiteBlue);
-  padding: 0;
+.navLinks {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
 }
 
-a.m-3 {
-  color: var(--SiteWhite);
+.navLinks:hover {
+  color: var(--SiteYellow); /*will change color of text within the element on hover */
+} 
+
+.navbar-nav {
+    justify-content: space-around;
+    color: white;
 }
-  
+
+.navbar-brand {
+    font-weight: bold;
+    color: white;
+}

@@ -11,8 +11,17 @@
   justify-content: center;
 }
 
+.logoPic {
+  width: 50%;
+  height: auto;
+  padding: 1rem;
+}
+
 @media all and (min-width: 480px) {
-    .Modal
+    .logoPic {
+      width: 30%;
+      height: auto;
+    }
     .Login {
       padding: 60px 0;
       color: var(--SiteBlue);
