@@ -1,11 +1,10 @@
 import React, {useState} from "react";
 import 'react-toastify/dist/ReactToastify.min.css';
-init(process.env.USER_ID);
 
 /* https://javascript.plainenglish.io/sending-email-in-react-application-with-nodemailer-afcef6906608
 */
 
-const Contact = () => {
+function Contact() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
@@ -26,7 +25,7 @@ const Contact = () => {
       }else if(resData.status === 'fail'){
           alert("Message failed to send.")
       }
-  };
+  }
 
   return (
     <div>
