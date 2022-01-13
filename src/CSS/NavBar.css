@@ -22,6 +22,13 @@
     font-size: 1.5em;
 }
 
+a.navLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .navLinks:hover {
   color: var(--SiteYellow); /*will change color of text within the element on hover */
 } 
@@ -34,4 +41,9 @@
 .navbar-brand {
     font-weight: bold;
     color: white;
+}
+
+a {
+    color: var(--SiteYellow); /*will change color of text within the element on hover */
+
 }
