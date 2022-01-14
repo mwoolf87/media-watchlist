@@ -3,7 +3,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../CSS/NavBar.css";
-import { HiOutlineUser } from "react-icons/hi";
+import {HiOutlineUser} from "react-icons/hi";
 
 function NavBar() {
   const local = window.localStorage;
