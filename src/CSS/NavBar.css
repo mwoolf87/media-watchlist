@@ -26,7 +26,6 @@ a.navLinks {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .navLinks:hover {

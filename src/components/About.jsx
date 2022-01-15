@@ -39,7 +39,7 @@ function About() {
                             <a href="https://github.com/julszymanski">
                                 <img className="about-logo m-2" src={GitHub} alt="GithubLogo"></img>
                             </a>
-                            <a href = "www.juliaszymanski.com/">
+                            <a href = "https://js-my-portfolio-react.herokuapp.com/">
                                 <img className = "about-logo" src = {pofolio_logo} alt = "PorfolioLink" />
                             </a>
                             </Col>
