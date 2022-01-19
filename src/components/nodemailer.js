@@ -2,6 +2,8 @@
 const nodemailer = require("nodemailer");
 require('dotenv').config()
 
+console.log(process.env.TEST);
+
 // async..await is not allowed in global scope, must use a wrapper
 async function main() {
   // Generate test SMTP service account from ethereal.email

@@ -1,6 +1,9 @@
 // "use strict";
-const nodemailer = require("nodemailer");
 require('dotenv').config()
+const nodemailer = require("nodemailer");
+
+//serving public file
+app.use(express.static(__dirname));
 
 // async..await is not allowed in global scope, must use a wrapper
 async function main() {
