@@ -18,7 +18,7 @@ function Dashboard() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        /* console.log(data); */
         if (data.message) {
           local.clear();
           navigate("/");
