@@ -93,3 +93,11 @@
 .button-19:disabled {
   cursor: auto;
 }
+
+a.movieLink {
+  color: black;
+}
+
+a.movieLink:hover {
+  color: var(--SiteBlue);
+}
