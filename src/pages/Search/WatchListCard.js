@@ -8,17 +8,16 @@ import "../CSS/MovieCard.css";
 import { useNavigate } from "react-router";
 import "../CSS/MovieCard.css";
 import { toast } from 'react-toastify';
-
+import { imageNA } from "./images/image_not_found.png"
 
 export default function WatchListCard({ movie, setWatchListData }) {
   const [modalShow, setModalShow] = useState(false);
   const handleClose = () => setModalShow(false);
   const handleShow = () => setModalShow(true);
 
-  const CAT_404 = "https://http.cat/404";
   const parentsGuideURL =
     "https://www.imdb.com/title/" + movie.imdbID + "/parentalguide";
-  console.log(parentsGuideURL);
+  // console.log(parentsGuideURL);
   // Dash title (i.e. Lord of the Rings: Return -> Lord-of-the-Rings-Return)
   const dashedTitle = movie.title.replace(/:+/g, "").replace(/\s+/g, "-");
 
@@ -50,7 +49,7 @@ export default function WatchListCard({ movie, setWatchListData }) {
           <Card className="movie-card" style={{ width: "18rem" }}>
             <Card.Img
               variant="top"
-              src={movie.poster === "N/A" ? CAT_404 : movie.poster}
+              src={movie.poster === "N/A" ? imageNA : movie.poster}
             />
             <Card.Body>
               <Card.Title>{movie.title}</Card.Title>

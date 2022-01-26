@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Card, Button, Modal, Row, Col, Image } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { setApiData } from "../redux/actions/movieData-actions";
-// import { setModalData } from "../redux/actions/detailedMovieData-actions";
 import imdblogo from "./Images/imdb.png";
 import csmlogo from "./Images/csm.png";
 import justwatch from "./Images/justwatch-square.png";
@@ -12,8 +11,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 export default function MovieCard(props) {
-  // Function to trigger modal to show
-  // const local = window.localStorage;
   // Todo: Guard against 404 errors on url links on modal
   const {
     Director,
@@ -36,7 +33,7 @@ export default function MovieCard(props) {
   const getMovie = imdbId => {
     const local = window.localStorage;
     let userID = local.getItem("userID");
-    console.log(userID);
+    // console.log(userID);
     axios
       .get(`https://www.omdbapi.com/?i=${imdbId}&apikey=39132f6b`)
       .then(res => {
@@ -48,48 +45,11 @@ export default function MovieCard(props) {
     toast.success('Movie Added to WatchList!');
   };
 
-  // const getMovie = () => {
-  //   const local = window.localStorage;
-  //   let userID = local.getItem("userID");
-  //   const movieBody = {
-  //     title: Title,
-  //     poster: Poster,
-  //     runTime: Runtime,
-  //     year: Year,
-  //     director: Director,
-  //     genre: Genre,
-  //     language: Language,
-  //     metaScore: Metascore,
-  //     plot: Plot,
-  //     imdbRating: imdbRating,
-  //     imdbID: imdbID
-  //   };
-  //   console.log(movieBody);
-  //   axios
-  //     .post(`https://new-mwl-backend.herokuapp.com/watchlist/${userID}`, {
-  //       method: "POST",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json"
-  //       },
-  //       // credentials: "include",
-  //       body: JSON.stringify(movieBody)
-  //     })
-  //     .then(data => console.log(data));
-  // };
-
-  // let { Actors } = entireObject;
-  // console.log(Actors);
   const handleClose = () => setModalShow(false);
-  // const handleShow = () => setModalShow(true);
 
   // defining dispatch to use on line 22
   const dispatch = useDispatch();
   //deconstructing props here
-
-  // const handleClick = () => {
-  //   updateEntireObject();
-  // };
 
   const CAT_404 = "https://http.cat/404";
 

@@ -34,7 +34,7 @@ function checkLogin() {
           password: newPassword})
   }).then (res => res.json())
   .then (data => {
-      console.log(data.login);
+      //console.log(data.login);
       if (data.login) {
         // Set data from backend storage into the front end Session Storage
         localStorage.setItem("userID",data.session.userid)
