@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Button, Modal, Row, Col, Image } from "react-bootstrap";
+import { Card, Button, Modal, Row, Col, Image, ListGroup } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { setApiData } from "../../redux/actions/movieData-actions";
 import imdblogo from "../../components/shared/images/imdb.png";
@@ -102,37 +102,33 @@ export default function MovieCard(props) {
       {modalShow && <Modal />}
 
       <Modal show={modalShow} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header style={{display: "flex", justifyContent : "center", alignItem : "center"}}closeButton>
           <Modal.Title>{Title}</Modal.Title>
         </Modal.Header>
         <Row>
-          <Col>Director: {Director}</Col>
-          <Col>Runtime: {Runtime}</Col>
-          <Col>Year: {Year}</Col>
-          <Col>Language: {Language}</Col>
-          <Col>Rating: {Rated}</Col>
-          <Col>Metascore: {Metascore}</Col>
-          <Col>imdbRating: {imdbRating}</Col>
-        </Row>
-        <Row>
-          <Col>Genre: {Genre}</Col>
-        </Row>
-        <Modal.Body>{Plot}</Modal.Body>
-        <Row>
+        <ListGroup.Item>Director: {Director}</ListGroup.Item>
+          <ListGroup.Item>Runtime: {Runtime}</ListGroup.Item>
+          <ListGroup.Item>Year: {Year}</ListGroup.Item>
+          <ListGroup.Item>Language: {Language}</ListGroup.Item>
+          <ListGroup.Item>Rating: {Rated}</ListGroup.Item>
+          <ListGroup.Item>Metascore: {Metascore}</ListGroup.Item>
+          <ListGroup.Item>imdbRating: {imdbRating}</ListGroup.Item>
+          <ListGroup.Item>Genre: {Genre}</ListGroup.Item>
+          <ListGroup.Item>{Plot}</ListGroup.Item>
           <Col>
-            <a href={parentsGuideURL} target="_blank" rel="noreferrer noopener">
+            <a className="movieLink" href={parentsGuideURL} target="_blank" rel="noreferrer noopener">
               <Image className="imdblogo" src={imdblogo} alt="imdb_logo" />
               <div>Parents Guide</div>
             </a>
           </Col>
           <Col>
-            <a href={commonSenseURL} target="_blank" rel="noreferrer noopener">
+            <a className="movieLink" href={commonSenseURL} target="_blank" rel="noreferrer noopener">
               <Image src={csmlogo} alt="csm_logo" />
               <div>Common Sense Media</div>
             </a>
           </Col>
           <Col>
-            <a href={justWatchURL} target="_blank" rel="noreferrer noopener">
+            <a className="movieLink" href={justWatchURL} target="_blank" rel="noreferrer noopener">
               <Image
                 className="imdblogo"
                 src={justwatch}
