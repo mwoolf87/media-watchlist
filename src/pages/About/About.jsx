@@ -109,7 +109,6 @@ function About() {
                     </Card>
                 </Col>
             </Row>
-            
         </Container>
     </>
   );
