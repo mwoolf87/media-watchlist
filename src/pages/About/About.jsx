@@ -1,12 +1,12 @@
 import React from "react";
-import GitHub from "./Images/githubLogo.png";
-import LinkedIn from "./Images/linkedinLogo.png";
+import GitHub from "./images/githubLogo.png";
+import LinkedIn from "./images/linkedinLogo.png";
 import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container' ;
-import ScottPic from './Images/Scott_aboutUS.jpeg';
-import JuliaPic from './Images/Julia_aboutUS.jpeg';
-import MikePic from './Images/Mike_aboutUS.jpeg';
-import pofolio_logo from './Images/portfolio.png';
+import ScottPic from './images/Scott_aboutUS.jpeg';
+import JuliaPic from './images/Julia_aboutUS.jpeg';
+import MikePic from './images/Mike_aboutUS.jpeg';
+import pofolio_logo from './images/portfolio.png';
 import { Card, Col, Row } from "react-bootstrap";
 import "./About.css";
 

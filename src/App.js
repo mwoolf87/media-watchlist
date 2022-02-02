@@ -1,17 +1,17 @@
 import "./App.css";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Login from "./pages/Login/Login";
-import Watchlist from "./pages/Search/Watchlist";
+import Login from "./pages/login/Login";
+import Watchlist from "./pages/watchlist/Watchlist";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navigation from "./components/Navigation";
-import About from "./pages/About/About";
+import Navigation from "./pages/navigation/Navigation";
+import About from "./pages/about/About";
 import OAuth from "./components/OAuth";
-import MediaList from "./components/MediaList";
+import MediaList from "./pages/search/MediaList";
 import ToastNotification from "./components/shared/ToastNotification";
-import WatchListCard from "./pages/Search/WatchListCard";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import Logout from "./pages/Logout/Logout";
+import WatchListCard from "./pages/watchlist/WatchListCard";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Logout from "./pages/logout/Logout";
 
 function App() {
   return (

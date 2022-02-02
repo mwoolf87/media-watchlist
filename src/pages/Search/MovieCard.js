@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Card, Button, Modal, Row, Col, Image } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { setApiData } from "../redux/actions/movieData-actions";
-import imdblogo from "./Images/imdb.png";
-import csmlogo from "./Images/csm.png";
-import justwatch from "./Images/justwatch-square.png";
-import "../CSS/MovieCard.css";
-import thumbsup from "./Images/thumbsup.jpg";
+import { setApiData } from "../../redux/actions/movieData-actions";
+import imdblogo from "../../components/shared/images/imdb.png";
+import csmlogo from "../../components/shared/images/csm.png";
+import justwatch from "../../components/shared/images/justwatch-square.png";
+import "./MovieCard.css";
+import thumbsup from "./images/thumbsup.jpg";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { imageNA } from "../../components/shared/images/imageNA.png"
 
 export default function MovieCard(props) {
   // Todo: Guard against 404 errors on url links on modal
@@ -51,8 +52,6 @@ export default function MovieCard(props) {
   const dispatch = useDispatch();
   //deconstructing props here
 
-  const CAT_404 = "https://http.cat/404";
-
   /* Define custom urls */
   const parentsGuideURL =
     "https://www.imdb.com/title/" + imdbID + "/parentalguide";
@@ -70,7 +69,7 @@ export default function MovieCard(props) {
       {/* copied this card syntax from react-bootstrap */}
       <Card className="movie-card" style={{ width: "18rem" }}>
         {/* using the the Poster variable defined from our prop deconstruction to reference a src="" for the image */}
-        <Card.Img variant="top" src={Poster === "N/A" ? CAT_404 : Poster} />
+        <Card.Img variant="top" src={Poster === "N/A" ? imageNA : Poster} />
         <Card.Body>
           {/* calling the title and year of the movie, within this react-bootstrap card */}
           <Card.Title>{Title}</Card.Title>

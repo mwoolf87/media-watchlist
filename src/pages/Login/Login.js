@@ -3,10 +3,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from 'react-bootstrap/Image';
 import Modal from "react-bootstrap/Modal";
-import "../CSS/Login.css";
+import "./Login.css";
 import { useNavigate } from "react-router";
 import { toast } from 'react-toastify';
-import MWL from './Images/MWL.jpeg';
+import MWL from "./images/MWL.jpeg"
 
 
 export default function Login() {

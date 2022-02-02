@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { Card, Button, Col, Row, Modal, Image } from "react-bootstrap";
-import imdblogo from "./Images/imdb.png";
-import csmlogo from "./Images/csm.png";
-import justwatch from "./Images/justwatch-square.png";
+import imdblogo from "../../components/shared/images/imdb.png";
+import csmlogo from "../../components/shared/images/csm.png";
+import justwatch from "../../components/shared/images/justwatch-square.png";
 import axios from "axios";
-import "../CSS/MovieCard.css";
+import "../search/MovieCard.css";
 import { useNavigate } from "react-router";
-import "../CSS/MovieCard.css";
 import { toast } from 'react-toastify';
-import { imageNA } from "./images/image_not_found.png"
+import { imageNA } from "../../components/shared/images/imageNA.png"
 
 export default function WatchListCard({ movie, setWatchListData }) {
   const [modalShow, setModalShow] = useState(false);

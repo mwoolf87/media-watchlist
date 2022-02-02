@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { toast } from "react-toastify";
-import "../CSS/Dashboard.css";
+import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
@@ -14,10 +14,10 @@ function Dashboard() {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
-      },
-      body: JSON.stringify(
+      }
+      /* body: JSON.stringify(
         {email: newEmail,
-        password: newPassword})
+        password: newPassword}) */
     })
       .then(res => res.json())
       .then(data => {
