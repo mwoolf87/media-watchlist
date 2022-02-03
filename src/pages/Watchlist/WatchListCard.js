@@ -5,13 +5,13 @@ import csmlogo from "../../components/shared/images/csm.png";
 import justwatch from "../../components/shared/images/justwatch-square.png";
 import axios from "axios";
 import "../search/MovieCard.css";
-import { useNavigate } from "react-router";
 import { toast } from 'react-toastify';
 import { imageNA } from "../../components/shared/images/imageNA.png"
 
 export default function WatchListCard({ movie, setWatchListData }) {
   const [modalShow, setModalShow] = useState(false);
   const handleClose = () => setModalShow(false);
+  // eslint-disable-next-line
   const handleShow = () => setModalShow(true);
 
   const parentsGuideURL =

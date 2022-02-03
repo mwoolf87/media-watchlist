@@ -11,6 +11,7 @@ toast.configure()
 
 export default function ToastNotification() {
   // notify fn required for toast.success to work
+  // eslint-disable-next-line
     const notify = () => toast.success('🦄 Login Successful!', {
         position: "bottom-center",
         autoClose: 5000,
@@ -22,6 +23,7 @@ export default function ToastNotification() {
         });
 
   // error fn required for toast.error to work
+  // eslint-disable-next-line
     const error = () => toast.error('Login Unsuccessful', {
         position: "bottom-center",
         autoClose: 5000,

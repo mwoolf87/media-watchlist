@@ -5,7 +5,6 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './redux/reducers/rootReducer';
-import Favicon from 'react-favicon'
 
 // creating store
 const store = createStore(

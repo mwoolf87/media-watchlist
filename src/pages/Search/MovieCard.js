@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Card, Button, Modal, Row, Col, Image, ListGroup } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { setApiData } from "../../redux/actions/movieData-actions";
 import imdblogo from "../../components/shared/images/imdb.png";
 import csmlogo from "../../components/shared/images/csm.png";
 import justwatch from "../../components/shared/images/justwatch-square.png";
@@ -22,6 +21,7 @@ export default function MovieCard(props) {
     Metascore,
     Plot,
     Poster,
+    // eslint-disable-next-line
     Released,
     Rated,
     Runtime,
@@ -49,6 +49,7 @@ export default function MovieCard(props) {
   const handleClose = () => setModalShow(false);
 
   // defining dispatch to use on line 22
+  // eslint-disable-next-line
   const dispatch = useDispatch();
   //deconstructing props here
 

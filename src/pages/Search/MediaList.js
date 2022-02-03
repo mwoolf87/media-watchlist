@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Row, Button, Form } from "react-bootstrap";
 import MovieCard from "./MovieCard";
+import "./Search.css"
+// eslint-disable-next-line
 const local = window.localStorage;
 
 export default function MediaList() {
@@ -71,13 +73,12 @@ export default function MediaList() {
 
   return (
     <div>
-      <h1></h1>
-      <Form onSubmit={handleSubmit}>
-        {/* text input that has an event handler of onChange that runs the handleChange function defined on line 18 */}
-        <input value={inputValue} onChange={handleChange} type="text" />
+        <Form className = "searchBar" onSubmit={handleSubmit}>
+          {/* text input that has an event handler of onChange that runs the handleChange function defined on line 18 */}
+          <input value={inputValue} onChange={handleChange} type="text" />
 
-        <Button className="button-19 m-2" type="submit">Search</Button>
-      </Form>
+          <Button className="button-19 m-2" type="submit">Search</Button>
+        </Form>
       <div className="movie-container">
         {apiData.length === 0 ? (
           <p className="error-message">Invalid Search Please Try Again</p>
