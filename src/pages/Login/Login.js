@@ -67,7 +67,7 @@ function checkRegistration() {
             password: newPassword})
   }).then (res => res.json())
   .then (data => {
-      console.log(data.registration);
+      // console.log(data.registration);
       if (data.registration) {
         localStorage.setItem("userID",data.session.userid)
         localStorage.setItem("first",data.session.first)
