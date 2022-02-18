@@ -1,22 +1,22 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Col, Row, Button, Form } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import WatchListCard from "./WatchListCard";
+import "../search/MovieCard.css"
 
 export default function WatchList() {
   const local = window.localStorage;
-  let userID = local.getItem("userID");
+  const userID = local.getItem("userID");
   const [watchListData, setWatchListData] = useState([]); //initializing state to store movie data from our api call in an array
-  const getWatchListData = () => {
-    axios
-      .get(`https://new-mwl-backend.herokuapp.com/watchlist/${userID}`)
-      .then(res => setWatchListData(res.data));
-  };
 
   useEffect(() => {
-    axios
-      .get(`https://new-mwl-backend.herokuapp.com/watchlist/${userID}`)
-      .then(res => setWatchListData(res.data));
+    const getWatchListData = () => {
+      axios
+        .get(`https://new-mwl-backend.herokuapp.com/watchlist/${userID}`)
+        .then(res => setWatchListData(res.data));
+    };
+
+    getWatchListData();
   }, []);
 
   return (

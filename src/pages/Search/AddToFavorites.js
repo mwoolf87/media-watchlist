@@ -21,11 +21,11 @@ useEffect(() => {
         })
         .then((response) => response.json())
         .then((response) => {
-            console.log(response.status);
+            // console.log(response.status);
             if (response.status === 200) {
-                console.log("The response is: ", response);
+                // console.log("The response is: ", response);
                 localStorage.setItem("UserName", response[0].userName);
-                console.log(localStorage.getItem("UserName"));
+                // console.log(localStorage.getItem("UserName"));
             } else {
                 document.location.replace("https://new-mwl-backend.herokuapp.com:3000/registration");
             }
