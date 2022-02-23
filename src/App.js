@@ -1,18 +1,17 @@
 import "./App.css";
-//importing react-bootstrap css in app.js
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Login from "./components/Login";
-import Watchlist from "./components/Watchlist";
+import Login from "./pages/Login/Login";
+import Watchlist from "./pages/Watchlist/Watchlist";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navigation from "./components/Navigation";
-import About from "./components/About";
+import Navigation from "./pages/Navigation/Navigation";
+import About from "./pages/About/About";
 import OAuth from "./components/OAuth";
-import MediaList from "./components/MediaList";
-import ToastNotification from "./components/ToastNotification";
-import WatchListCard from "./components/WatchListCard";
-import Dashboard from "./components/Dashboard";
-import Logout from "./components/Logout";
+import MediaList from "./pages/Search/MediaList";
+import ToastNotification from "./components/shared/ToastNotification";
+import WatchListCard from "./pages/Watchlist/WatchListCard";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Logout from "./pages/Logout/Logout";
 
 function App() {
   return (

@@ -8,8 +8,7 @@ import JuliaPic from './Images/Julia_aboutUS.jpeg';
 import MikePic from './Images/Mike_aboutUS.jpeg';
 import pofolio_logo from './Images/portfolio.png';
 import { Card, Col, Row } from "react-bootstrap";
-import "../CSS/About.css";
-
+import "./About.css";
 
 function About() {
   return (
@@ -110,7 +109,6 @@ function About() {
                     </Card>
                 </Col>
             </Row>
-            
         </Container>
     </>
   );

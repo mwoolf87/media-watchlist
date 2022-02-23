@@ -3,11 +3,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from 'react-bootstrap/Image';
 import Modal from "react-bootstrap/Modal";
-import "../CSS/Login.css";
+import "./Login.css";
 import { useNavigate } from "react-router";
 import { toast } from 'react-toastify';
-import MWL from './Images/MWL.jpeg';
-
+import MWL from "./images/MWL.jpeg"
 
 export default function Login() {
   const [registerModalShow, setRegisterModalShow] = React.useState(false);
@@ -34,7 +33,7 @@ function checkLogin() {
           password: newPassword})
   }).then (res => res.json())
   .then (data => {
-      console.log(data.login);
+      //console.log(data.login);
       if (data.login) {
         // Set data from backend storage into the front end Session Storage
         localStorage.setItem("userID",data.session.userid)
@@ -68,7 +67,7 @@ function checkRegistration() {
             password: newPassword})
   }).then (res => res.json())
   .then (data => {
-      console.log(data.registration);
+      // console.log(data.registration);
       if (data.registration) {
         localStorage.setItem("userID",data.session.userid)
         localStorage.setItem("first",data.session.first)

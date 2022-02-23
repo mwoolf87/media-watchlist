@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { toast } from "react-toastify";
-import "../CSS/Dashboard.css";
+import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
@@ -15,10 +15,13 @@ function Dashboard() {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
+      /* body: JSON.stringify(
+        {email: newEmail,
+        password: newPassword}) */
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        /* console.log(data); */
         if (data.message) {
           local.clear();
           navigate("/");
@@ -27,12 +30,22 @@ function Dashboard() {
       });
   }
 
+  function changePassword() {
+    fetch("https://new-mwl-backend.herokuapp.com/users/password/:id", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+  }
+
   return (
     <div class="dashboard">
       {String(local.getItem("first")) &&
       String(local.getItem("last")) === "null" ? (
         <h2 className="text-center">
-          Welcome, Guest! <br></br> Please Login to Edit your Credentials
+          Welcome, Guest! <br></br> Please <a id = "blueLink" href="https://media-watch-list.herokuapp.com/login">Login</a> to Edit your Credentials
         </h2>
       ) : (
         <Card style={{ width: "30rem" }}>
@@ -65,7 +78,7 @@ function Dashboard() {
                   Update Password:
                   <input class="input-class" type="text" name="email" />
                 </label>
-                <input className="button-19 m-2" type="submit" value="Submit" />
+                <input className="button-19 m-2" type="submit" value="Submit" onClick={changePassword} />
               </form>
             </div>
             {/* User click buttons, gives option to update password 
