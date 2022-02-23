@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import WatchListCard from "./WatchListCard";
 import "../Search/MovieCard.css"
+import "./Watchlist.css"
 
 export default function WatchList() {
   const local = window.localStorage;
+  // eslint-disable-next-line
   const userID = local.getItem("userID");
   const [watchListData, setWatchListData] = useState([]); //initializing state to store movie data from our api call in an array
 
@@ -23,7 +25,11 @@ export default function WatchList() {
     <div>
       {String(local.getItem("first")) &&
       String(local.getItem("last")) === "null" ? (
-        <h1>Guest User's Media-Watchlist</h1>
+        <div>
+          <h1>Guest Media-Watchlist</h1>
+          <div>
+            <a id = "blueLink" href = "https://media-watch-list.herokuapp.com/login">Login</a> or create an <a id = "blueLink" href = "https://media-watch-list.herokuapp.com/login">account</a> to save movies to watchlist</div>
+        </div>
       ) : (
         <h1>
           {String(local.getItem("first"))} {String(local.getItem("last"))}'s
