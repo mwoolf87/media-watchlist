@@ -1,9 +1,9 @@
 {
   "name": "front-end",
   "version": "0.1.0",
-  "engine": {
-    "node": "16.11.0",
-    "npm": "8.3.0"
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
   },
   "private": true,
   "proxy": "https://new-mwl-backend.herokuapp.com/",

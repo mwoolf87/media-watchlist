@@ -4,7 +4,7 @@ import imdblogo from "../../components/shared/images/imdb.png";
 import csmlogo from "../../components/shared/images/csm.png";
 import justwatch from "../../components/shared/images/justwatch-square.png";
 import axios from "axios";
-import "../search/MovieCard.css";
+import "../Search/MovieCard.css";
 import { toast } from 'react-toastify';
 import { imageNA } from "../../components/shared/images/imageNA.png"
 
