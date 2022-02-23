@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import WatchListCard from "./WatchListCard";
-import "../search/MovieCard.css"
+import "../Search/MovieCard.css"
 
 export default function WatchList() {
   const local = window.localStorage;
