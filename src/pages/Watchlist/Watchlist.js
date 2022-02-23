@@ -6,6 +6,7 @@ import "../Search/MovieCard.css"
 
 export default function WatchList() {
   const local = window.localStorage;
+  // eslint-disable-next-line
   const userID = local.getItem("userID");
   const [watchListData, setWatchListData] = useState([]); //initializing state to store movie data from our api call in an array
 

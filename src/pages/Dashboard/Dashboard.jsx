@@ -45,7 +45,7 @@ function Dashboard() {
       {String(local.getItem("first")) &&
       String(local.getItem("last")) === "null" ? (
         <h2 className="text-center">
-          Welcome, Guest! <br></br> Please Login to Edit your Credentials
+          Welcome, Guest! <br></br> Please <a id = "blueLink" href="https://media-watch-list.herokuapp.com/login">Login</a> to Edit your Credentials
         </h2>
       ) : (
         <Card style={{ width: "30rem" }}>

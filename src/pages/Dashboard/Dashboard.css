@@ -2,8 +2,7 @@
     text-align: left;
     display: flex;
     padding: 3rem;
-    justify-content: center;
-  
+    justify-content: center; 
 }
 
 .input-class {
@@ -68,4 +67,7 @@
   .button-19:disabled {
     cursor: auto;
   }
-  
+
+  #blueLink {
+    color: blue
+  }
