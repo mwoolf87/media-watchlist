@@ -8,8 +8,6 @@
   https://media-watch-list.herokuapp.com/
 </div>
 
-Update to README  
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
