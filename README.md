@@ -8,7 +8,7 @@
   https://media-watch-list.herokuapp.com/
 </div>
 
-
+Update to README  
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -94,10 +94,6 @@ _Below is an example of how you can instruct your audience on installing and set
 
 
 <!-- USAGE EXAMPLES -->
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 
 <!-- ROADMAP -->
