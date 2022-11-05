@@ -49,7 +49,8 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ],"rules": {
+    ],
+    "rules": {
       "no-unused-vars": "off"
     }
   },
