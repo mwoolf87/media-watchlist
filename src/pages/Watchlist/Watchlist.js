@@ -14,7 +14,7 @@ export default function WatchList() {
   useEffect(() => {
     const getWatchListData = () => {
       axios
-        .get(`https://new-mwl-backend.herokuapp.com/watchlist/${userID}`)
+        .get(`https://new-mwl-backend.onrender.com//watchlist/${userID}`)
         .then(res => setWatchListData(res.data));
     };
 
@@ -28,7 +28,7 @@ export default function WatchList() {
         <div>
           <h1>Guest Media-Watchlist</h1>
           <div>
-            <a id = "blueLink" href = "https://media-watch-list.herokuapp.com/login">Login</a> or create an <a id = "blueLink" href = "https://media-watch-list.herokuapp.com/login">account</a> to save movies to watchlist</div>
+            <a id = "blueLink" href = "https://mediawatchlist.onrender.com/login">Login</a> or create an <a id = "blueLink" href = "https://media-watch-list.herokuapp.com/login">account</a> to save movies to watchlist</div>
         </div>
       ) : (
         <h1>
