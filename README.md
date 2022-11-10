@@ -5,7 +5,7 @@
 <div align="center">
 
   <h3 align="center">Media Watch List - Information at your fingertips</h3>
-  https://media-watch-list.herokuapp.com/
+  https://mediawatchlist.onrender.com/
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -99,7 +99,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
 - [ ] **Stretch Goal:** Add aditional media types - books, music, app
 
-See the [open issues](https://github.com/mwoolf87/media-watchlist/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/smhenderson89/media-watchlist) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

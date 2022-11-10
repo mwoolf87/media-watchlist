@@ -9,7 +9,7 @@ function Dashboard() {
   const navigate = useNavigate();
 
   function logout() {
-    fetch("https://new-mwl-backend.herokuapp.com/logout", {
+    fetch("https://new-mwl-backend.onrender.com/logout", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -31,7 +31,7 @@ function Dashboard() {
   }
 
   function changePassword() {
-    fetch("https://new-mwl-backend.herokuapp.com/users/password/:id", {
+    fetch("https://new-mwl-backend.onrender.com/users/password/:id", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -45,7 +45,7 @@ function Dashboard() {
       {String(local.getItem("first")) &&
       String(local.getItem("last")) === "null" ? (
         <h2 className="text-center">
-          Welcome, Guest! <br></br> Please <a id = "blueLink" href="https://media-watch-list.herokuapp.com/login">Login</a> to Edit your Credentials
+          Welcome, Guest! <br></br> Please <a id = "blueLink" href="https://mediawatchlist.onrender.com//login">Login</a> to Edit your Credentials
         </h2>
       ) : (
         <Card style={{ width: "30rem" }}>
