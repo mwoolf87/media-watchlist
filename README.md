@@ -5,7 +5,7 @@
 <div align="center">
 
   <h3 align="center">Media Watch List - Information at your fingertips</h3>
-  https://mediawatchlist.onrender.com/
+  https://media-watch-list.herokuapp.com/
 </div>
 
 <!-- TABLE OF CONTENTS -->
