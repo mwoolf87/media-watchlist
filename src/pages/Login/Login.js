@@ -22,7 +22,7 @@ export default function Login() {
 
   // Check Login Function
 function checkLogin() {
-  fetch('https://new-mwl-backend.onrender.com/login/verify', {
+  fetch('https://mwl-backend-v2.herokuapp.com/login/verify', {
       method: "POST",
       headers: {
           'Accept': 'application/json',
@@ -54,7 +54,7 @@ function checkLogin() {
 }
 
 function checkRegistration() {
-  fetch('https://new-mwl-backend.onrender.com/login/register', {
+  fetch('https://mwl-backend-v2.herokuapp.com/login/register', {
       method: "POST",
       headers: {
           'Accept': 'application/json',
@@ -124,13 +124,13 @@ function checkRegistration() {
         </Button>
         <Button className="button-19 m-2" onClick={(e) => {
               e.preventDefault();
-              window.location.href='https://new-mwl-backend.onrender.com/auth/github';
+              window.location.href='https://mwl-backend-v2.herokuapp.com/auth/github';
               }} block size="lg" type="submit">
                 Github Login 
               </Button>
         {/* <Button className="button-19 m-2" onClick={(e) => {
               e.preventDefault();
-              window.location.href='https://new-mwl-backend.onrender.com/auth/google';
+              window.location.href='https://mwl-backend-v2.herokuapp.com/auth/google';
               }} block size="lg" type="submit">
                 Google Login 
               </Button> */}
@@ -197,13 +197,13 @@ function checkRegistration() {
         </Button>
         <Button className="button-19 m-2" onClick={(e) => {
               e.preventDefault();
-              window.location.href='https://new-mwl-backend.onrender.com/auth/github';
+              window.location.href='https://mwl-backend-v2.herokuapp.com/auth/github';
               }} block size="lg" type="submit">
                 Github Signup 
               </Button>
         {/* <Button className="button-19 m-2" onClick={(e) => {
               e.preventDefault();
-              window.location.href='https://new-mwl-backend.onrender.com/auth/google';
+              window.location.href='https://mwl-backend-v2.herokuapp.com/auth/google';
               }} block size="lg" type="submit">
                 Google Signup 
               </Button> */}

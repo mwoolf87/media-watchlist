@@ -30,13 +30,13 @@ export default function WatchListCard({ movie, setWatchListData }) {
 
   const deleteMovie = async imdbID => {
     await axios.delete(
-      `https://new-mwl-backend.onrender.com//watchlist/${imdbID}`,
+      `https://mwl-backend-v2.herokuapp.com/watchlist/${imdbID}`,
       {
         data: { UserId: userID }
       }
     );
     axios
-      .get(`https://new-mwl-backend.onrender.com//watchlist/${userID}`)
+      .get(`https://mwl-backend-v2.herokuapp.com/watchlist/${userID}`)
       .then(res => setWatchListData(res.data));
       toast.success('Movie Deleted!');
   };
