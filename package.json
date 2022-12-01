@@ -35,7 +35,7 @@
     "react-toastify": "^8.1.0",
     "redux": "^4.1.2",
     "semantic-ui-css": "^2.4.1",
-    "serve": "^13.0.2",
+    "serve": "^14.1.2",
     "web-vitals": "^1.0.1",
     "yup": "^0.32.11"
   },
