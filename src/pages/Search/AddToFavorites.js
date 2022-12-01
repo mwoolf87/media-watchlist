@@ -10,7 +10,7 @@ console.log(email);
 
 useEffect(() => {
     console.log("useEffect")(async function () {
-        const urlString = "https://new-mwl-backend.onrender.com//users/" + email;
+        const urlString = "https://mwl-backend-v2.herokuapp.com/users/" + email;
         console.log(email);
         await fetch(urlString, {
             method: "GET",
@@ -27,7 +27,7 @@ useEffect(() => {
                 localStorage.setItem("UserName", response[0].userName);
                 // console.log(localStorage.getItem("UserName"));
             } else {
-                document.location.replace("https://new-mwl-backend.onrender.com:3000/registration");
+                document.location.replace("https://mwl-backend-v2.herokuapp.com/registration");
             }
         });
     });

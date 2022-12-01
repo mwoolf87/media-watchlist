@@ -5,7 +5,7 @@
 <div align="center">
 
   <h3 align="center">Media Watch List - Information at your fingertips</h3>
-  https://mediawatchlist.onrender.com/
+  https://media-watch-list.herokuapp.com/
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -75,7 +75,7 @@ _Below is an example of how you can instruct your audience on installing and set
 1. Get a free API Key at [http://www.omdbapi.com/apikey.aspx](http://www.omdbapi.com/apikey.aspx)
 2. Clone the repo
    ```sh
-   git clone gh repo clone mwoolf87/media-watchlist 
+   git clone gh repo clone smhenderson89/media-watchlist 
    ```
 3. Install NPM packages
    ```sh

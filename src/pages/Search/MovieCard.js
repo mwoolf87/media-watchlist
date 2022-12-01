@@ -39,7 +39,7 @@ export default function MovieCard(props) {
       .get(`https://www.omdbapi.com/?i=${imdbId}&apikey=39132f6b`)
       .then(res => {
         axios.post(
-          `https://new-mwl-backend.onrender.com/watchlist/${userID}`,
+          `https://mwl-backend-v2.herokuapp.com/watchlist/${userID}`,
           res.data
         );
       });
